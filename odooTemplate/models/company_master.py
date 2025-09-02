@@ -9,6 +9,8 @@ class CompanyMaster(models.Model):
     phone = fields.Char(string="Phone")
     email = fields.Char(string="Email")
     website = fields.Char(string="Website")
+    gst = fields.Char(string="Website")
+    pan = fields.Char(string="Website")
 
     user_ids = fields.Many2many(
         'res.users',

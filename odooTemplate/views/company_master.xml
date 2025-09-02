@@ -13,6 +13,8 @@
                         <field name="email"/>
                         <field name="website"/>
                         <field name="user_ids"/>
+                        <field name="gst"/>
+                        <field name="pan"/>
                     </group>
                 </sheet>
             </form>
@@ -28,6 +30,8 @@
                 <field name="name"/>
                 <field name="phone"/>
                 <field name="email"/>
+                <field name="gst"/>
+                <field name="pan"/>
             </tree>
         </field>
     </record>
