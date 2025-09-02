@@ -1,0 +1,64 @@
+<odoo>
+    <!-- Views -->
+    <record id="view_movie_social_influencer_tree" model="ir.ui.view">
+        <field name="name">movie.social.influencer.tree</field>
+        <field name="model">movie.social.influencer</field>
+        <field name="arch" type="xml">
+            <tree string="Social Influencers">
+                <field name="name"/>
+                <field name="platform"/>
+                <field name="followers"/>
+                <field name="total_posts"/>
+                <field name="avg_likes"/>
+                <field name="avg_comments"/>
+                <field name="engagement_score"/>
+                <field name="last_updated"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_movie_social_influencer_form" model="ir.ui.view">
+        <field name="name">movie.social.influencer.form</field>
+        <field name="model">movie.social.influencer</field>
+        <field name="arch" type="xml">
+            <form string="Social Influencer">
+                <header>
+                    <button name="action_fetch_data" type="object" string="Fetch Data" class="btn-primary"/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="platform"/>
+                        <field name="social_id"/>
+                        <field name="access_token" password="True"/>
+                    </group>
+                    <group>
+                        <field name="followers" readonly="1"/>
+                        <field name="total_posts" readonly="1"/>
+                        <field name="avg_likes" readonly="1"/>
+                        <field name="avg_comments" readonly="1"/>
+                        <field name="engagement_score" readonly="1"/>
+                        <field name="last_updated" readonly="1"/>
+                    </group>
+                    <footer>
+
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <!-- Action must be defined before menuitem that references it -->
+    <record id="action_movie_social_influencer" model="ir.actions.act_window">
+        <field name="name">Social Influencers</field>
+        <field name="res_model">movie.social.influencer</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu referencing the action -->
+    <menuitem id="menu_movie_social_influencer" name="Social Influencers" parent="menu_movie_marketing_root" action="action_movie_social_influencer"/>
+
+</odoo>

@@ -1,0 +1,50 @@
+<odoo>
+    <!-- This record offer letter reporting -->
+    <record id="action_report_offer_letter"
+            model="ir.actions.report">
+        <field name="name">Offer Letter</field>
+        <field name="model">nutshell.letters</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nsi_school.report_offer_letter</field>
+        <field name="report_file">nsi_school.report_offer_letter</field>
+        <field name="binding_model_id"
+               ref="model_nutshell_letters"/>
+    </record>
+
+    <!-- This record offer letter reporting -->
+    <record id="action_report_joining_letter"
+            model="ir.actions.report">
+        <field name="name">Joining Letter</field>
+        <field name="model">nutshell.letters</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nsi_school.report_joining_letter</field>
+        <field name="report_file">nsi_school.report_joining_letter</field>
+        <field name="binding_model_id"
+               ref="model_nutshell_letters"/>
+    </record>
+
+    <!-- This record internship letter reporting -->
+    <record id="action_report_internship_certification"
+            model="ir.actions.report">
+        <field name="name">Internship Certification</field>
+        <field name="model">nutshell.letters</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nsi_school.report_internship_certification</field>
+        <field name="report_file">nsi_school.report_internship_certification</field>
+        <field name="binding_model_id"
+               ref="model_nutshell_letters"/>
+    </record>
+
+    <!-- This record other letter reporting -->
+    <record id="action_report_others_letter"
+            model="ir.actions.report">
+        <field name="name">Other Letters</field>
+        <field name="model">nutshell.letters</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nsi_school.report_other_letters</field>
+        <field name="report_file">nsi_school.report_other_letters</field>
+        <field name="binding_model_id"
+               ref="model_nutshell_letters"/>
+    </record>
+
+</odoo>

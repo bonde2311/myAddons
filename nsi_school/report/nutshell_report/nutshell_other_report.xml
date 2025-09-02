@@ -1,0 +1,25 @@
+<odoo>
+    <template id="report_other_letters">
+        <t t-call="web.html_container">
+            <div class="header"
+                 style="margin:0; padding:0;">
+                <img src="/nsi_school/static/src/img/header1.png"/>
+            </div>
+            <t t-call="web.internal_layout">
+                <!-- Full Page Div -->
+                <div class="page">
+                    <t t-foreach="docs"
+                       t-as="o">
+                        <p class="text-center"
+                           style="color:#3E2A6B; background-color:#F5F5F5; padding:3px; border-radius:5px; margin-bottom: 10px;">
+                            Reg. Office: plot No56 Gat No. 25/1/1, Nr. Shivdham Temple, Old Hiway Jalgaon 425003 (MH),
+                            India
+                            Website : https://nutshellinfosoft.com| info@nutshellinfosoft.com | Contact: +91 2269646508,
+                            +91 9730070172
+                        </p>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

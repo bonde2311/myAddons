@@ -1,0 +1,39 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_movie_production,movie.production,model_movie_production,base.group_user,1,1,1,1
+access_movie_actor,movie.actor,model_movie_actor,base.group_user,1,1,1,1
+access_movie_actor_role,movie.actor.role,model_movie_actor_role,base.group_user,1,1,1,1
+access_movie_crew,movie.crew,model_movie_crew,base.group_user,1,1,1,1
+access_movie_crew_position,movie.crew.position,model_movie_crew_position,base.group_user,1,1,1,1
+access_movie_location,movie.location,model_movie_location,base.group_user,1,1,1,1
+access_movie_production_house,movie.production.house,model_movie_production_house,base.group_user,1,1,1,1
+access_movie_schedule,movie.schedule,model_movie_schedule,base.group_user,1,1,1,1
+access_movie_theatre,movie.theatre,model_movie_theatre,base.group_user,1,1,1,1
+access_ott_platform_user,access.ott.platform.user,model_ott_platform,base.group_user,1,1,1,1
+access_actor_portfolio_user,access.actor.portfolio.user,model_actor_portfolio,base.group_user,1,1,1,1
+access_portfolio_image_user,access.portfolio.image.user,model_portfolio_image,base.group_user,1,1,1,1
+access_movie_catering_quotation_user,Catering Quotation,model_movie_catering_quotation,base.group_user,1,1,1,1
+access_movie_catering_order_user,Catering Order,model_movie_catering_order,base.group_user,1,1,1,1
+access_movie_catering_quotation_line_user,Catering Quotation Line,model_movie_catering_quotation_line,base.group_user,1,1,1,1
+access_movie_catering_order_line_user,Catering Order Line,model_movie_catering_order_line,base.group_user,1,1,1,1
+access_movie_contract,movie.contract model access,model_movie_contract,,1,1,1,1
+access_movie_attendance_admin,movie.attendance admin,model_movie_attendance,base.group_system,1,1,1,1
+access_movie_social_influencer_user,access_movie_social_influencer_user,model_movie_social_influencer,,1,1,1,1
+access_movie_sponsor_user,access.movie.sponsor.user,model_movie_sponsor,base.group_user,1,1,1,1
+access_movie_marketing_manager,movie.marketing manager,model_movie_marketing,base.group_system,1,1,1,1
+aaccess_partner_music,access_partner_music,model_partner_music,,1,1,1,1
+access_partner_tv,access_partner_tv,model_partner_tv,,1,1,1,1
+access_partner_ott,access_partner_ott,model_partner_ott,,1,1,1,1
+access_partner_radio,access_partner_radio,model_partner_radio,,1,1,1,1
+access_partner_print,access_partner_print,model_partner_print,,1,1,1,1
+access_partner_distribution,access_partner_distribution,model_partner_distribution,,1,1,1,1
+access_partner_legal,access_partner_legal,model_partner_legal,,1,1,1,1
+access_partner_merchandise,access_partner_merchandise,model_partner_merchandise,,1,1,1,1
+access_partner_event,access_partner_event,model_partner_event,base.group_user,1,1,1,1
+access_partner_vfx_post,access_partner_vfx_post,model_partner_vfx_post,base.group_user,1,1,1,1
+access_partner_talent_agency,access_partner_talent_agency,model_partner_talent_agency,base.group_user,1,1,1,1
+access_partner_cinema_chain,access_partner_cinema_chain,model_partner_cinema_chain,base.group_user,1,1,1,1
+access_partner_intl_sales,access_partner_intl_sales,model_partner_intl_sales,base.group_user,1,1,1,1
+access_partner_subtitling_dubbing,access_partner_subtitling_dubbing,model_partner_subtitling_dubbing,base.group_user,1,1,1,1
+access_partner_food_beverage,access_partner_food_beverage,model_partner_food_beverage,base.group_user,1,1,1,1
+access_partner_travel_accommodation,access_partner_travel_accommodation,model_partner_travel_accommodation,base.group_user,1,1,1,1
+access_movie_payment_line_user,movie.payment.line user,model_movie_payment_line,base.group_user,1,1,1,1

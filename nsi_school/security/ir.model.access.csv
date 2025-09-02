@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_student_user,access_school_student_user,model_school_student,base.group_user,1,1,1,1
+access_school_teacher_user,access_school_teacher_user,model_school_teacher,base.group_user,1,1,1,1
+access_school_department_user,access_school_department_user,model_school_department,base.group_user,1,1,1,1
+access_school_division_user,access_school_division_user,model_school_division,base.group_user,1,1,1,1
+access_school_classes_user,access_school_classes_user,model_school_classes,base.group_user,1,1,1,1
+access_school_fees_user,access_school_fees_user,model_school_fees,base.group_user,1,1,1,1
+access_school_admission_user,access_school_admission_user,model_school_admission,base.group_user,1,1,1,1
+access_school_attendance_user,access_school_attendance_user,model_school_attendance,base.group_user,1,1,1,1
+access_school_subject_user,access_school_subject_user,model_school_subject,base.group_user,1,1,1,1
+access_nutshell_letters_user,access_nutshell_letters_user,model_nutshell_letters,base.group_user,1,1,1,1
+access_nutshell_employee_user,access_nutshell_employee_user,model_nutshell_employee,base.group_user,1,1,1,1

@@ -1,0 +1,142 @@
+<odoo>
+    <template id="report_student_fees">
+        <t t-call="web.html_container">
+            <div class="header">
+                <img src="/nsi_school/static/src/img/header.jpg"
+                     style="width:100%; margin:10px 0;"/>
+            </div>
+            <t t-call="web.external_layout">
+                <t t-foreach="docs"
+                   t-as="o">
+                    <div class="page"
+                         style="margin-top:60px; width:100vw; height:100vh; position:relative;background-image: url('/nsi_school/static/bg.jpg');  background-size: cover;">
+                            <h2 class="text-center"
+                                style="font-weight:bold; background-color:#F5F5F5; padding:3px; border-radius:5px; font-size:22px;">
+                                Student Fees Receipt
+                            </h2>
+                        <div>
+                            <span style="float:left; margin:10px;">Receipt No:
+                                <span t-field="o.name"/>
+                            </span>
+                            <span style="float:right; margin:10px;">Date:
+                                <span t-field="o.fee_date"/>
+                            </span>
+                        </div>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Student ID:</th>
+                                <td>
+                                    <span t-field="o.student_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Student Name:</th>
+                                <td>
+                                    <span t-field="o.student_name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Admission ID:</th>
+                                <td>
+                                    <span t-field="o.rel_admission_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Department:</th>
+                                <td>
+                                    <span t-field="o.student_department"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Class:</th>
+                                <td>
+                                    <span t-field="o.student_class"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Division:</th>
+                                <td>
+                                    <span t-field="o.student_division"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Fees Type:</th>
+                                <td>
+                                    <span t-field="o.fees_type"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Total Fee:</th>
+                                <td>
+                                    <span t-field="o.total_fee"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Paid Amount:</th>
+                                <td>
+                                    <span t-field="o.paid_amount"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Remaining Amount:</th>
+                                <td>
+                                    <span t-field="o.remaining_amount"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Fees Paid Date:</th>
+                                <td>
+                                    <span t-field="o.fee_date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Payment Status:</th>
+                                <td>
+                                    <span t-field="o.payment_status"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Remark:</th>
+                                <td>
+                                    <span t-field="o.remark"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table style="margin: 20px auto; width:100%;">
+                            <tr style="padding:10px 0; border:1px solid white; ">
+                                <td style="width:30%;text-align:center; border:none;">
+                                    <img t-att-src="'/nsi_school/static/src/img/signature_stamp.png'"
+                                         style="width: 80%; max-width: 200px;"/>
+                                    <br/>
+                                    <span>Cashier:</span>
+                                    <br/>
+                                    <span style="font-weight:600; background-color:#F5F5F5; padding:2px 4px; border-radius:4px; color:blue;">
+                                        G. R. Bonde
+                                    </span>
+                                </td>
+                                <td style="width:30%; text-align:center; border:none;">
+                                    <img t-att-src="'/nsi_school/static/src/img/kkwstamp.png'"
+                                         style="height: 180px;"/>
+                                    <br/>
+                                    <span>College Stamp:</span>
+                                </td>
+                                <td style="width:30%;text-align:center; border:none;">
+                                    <img t-att-src="'/nsi_school/static/src/img/sign.png'"
+                                         style="width: 100%; max-width: 250px;"/>
+                                    <br/>
+                                    <span>College Principal:</span>
+                                    <br/>
+                                    <span style="font-weight:600; background-color:#F5F5F5; padding:2px 4px; border-radius:4px; color:blue;">
+                                        Dr. D. A. Bagul
+                                    </span>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </div>
+
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

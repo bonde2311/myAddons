@@ -1,0 +1,207 @@
+<odoo>
+    <template id="report_student_admission">
+        <t t-call="web.html_container">
+            <div class="header">
+                <img src="/nsi_school/static/src/img/header.jpg"/>
+            </div>
+            <t t-call="web.internal_layout">
+                <!-- Full Page Div -->
+                <div class="page">
+                    <t t-foreach="docs"
+                       t-as="o">
+                        <h2 class="text-center"
+                            style="color:#3E2A6B; font-weight:600; background-color:#F5F5F5; padding:3px; border-radius:5px; margin-bottom: 10px;">
+                            Online Admission Registration For 2024-25
+                        </h2>
+
+                        <!-- Upper Table Student Details / Start -->
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Admission ID:</th>
+                                <td>
+                                    <span t-field="o.name"/>
+                                </td>
+                                <th>Admission Date:</th>
+                                <td>
+                                    <span t-field="o.date"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="4"
+                                    style="color:#3E2A6B; font-weight:600; background-color:#F5F5F5; border-radius:5px;">
+                                    Personal Details:
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Student ID:</th>
+                                <td>
+                                    <span t-field="o.rel_student_id"/>
+                                </td>
+                                <td rowspan="5"
+                                    colspan="2"
+                                    align="center">
+                                    <img t-if="o.profile_pic"
+                                         t-att-src="'data:image/png;base64,' + o.profile_pic.decode('utf-8')"
+                                         style="border-radius: 5px;"
+                                         height="180px"
+                                         width="170px"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Student Name:</th>
+                                <td>
+                                    <span t-field="o.student_name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Email:</th>
+                                <td>
+                                    <span t-field="o.student_email"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Mobile No:</th>
+                                <td>
+                                    <span t-field="o.student_mobile_no"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Gender:</th>
+                                <td>
+                                    <span t-field="o.student_gender"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Age:</th>
+                                <td>
+                                    <span t-field="o.student_age"/>
+                                </td>
+                                <td rowspan="2"
+                                    colspan="2"
+                                    align="center">
+                                    <img t-if="o.student_sign"
+                                         t-att-src="'data:image/png;base64,' + o.student_sign.decode('utf-8')"
+                                         style="border-radius: 5px;"
+                                         height="60px"
+                                         width="170px"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Birth Date:</th>
+                                <td>
+                                    <span t-field="o.student_birth_date"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Student Academic Details Table -->
+                        <table class="table table-bordered">
+                            <tr>
+                                <th colspan="2"
+                                    style="color:#3E2A6B; font-weight:600; background-color:#F5F5F5; border-radius:5px;">
+                                    Academic Details:
+                                </th>
+                            </tr>
+                            <tr>
+                                <th>Assigned Department:</th>
+                                <td>
+                                    <span t-field="o.rel_department_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Assigned Class:</th>
+                                <td>
+                                    <span t-field="o.rel_class_id"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Assigned Division:</th>
+                                <td>
+                                    <span t-field="o.rel_division_id"/>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <!-- Stamp & Signature Details Table -->
+                        <table style="margin: 30px auto; width:100%;">
+                            <tr style="padding:10px 0; border:1px solid white;">
+                                <td style="width:30%;text-align:center;">
+                                    <img t-att-src="'/nsi_school/static/src/img/bonde.jpeg'"
+                                         style="width: 80%; max-width: 180px;"/>
+                                    <br/>
+                                    <span style="font-weight:600; background-color:#F5F5F5; padding:2px 4px; border-radius:4px; color:blue;">
+                                        Dr. G. R. Bonde
+                                    </span>
+                                    <br/>Head of Department:
+                                </td>
+                                <td style="width:30%; text-align:center;padding:5px 0 0 0;">
+                                    <img t-att-src="'/nsi_school/static/src/img/approved_grren.png'"
+                                         style="height: 200px;"/>
+                                </td>
+                                <td style="width:30%;text-align:center;padding:0 0 5px 0;">
+                                    <img t-att-src="'/nsi_school/static/src/img/sign.png'"
+                                         style="width: 100%; max-width: 190px;"/>
+                                    <br/>
+                                    <span style="font-weight:600; background-color:#F5F5F5; padding:2px 4px; border-radius:4px; color:blue;">
+                                        Dr. D. A. Bagul
+                                    </span>
+                                    <br/>College Principal:
+                                    <br/>
+                                    <img src="/nsi_school/static/src/img/stamp.jpeg"
+                                         style="width: 100%; max-width: 250px;"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <!-- Upper Table Student Details / End -->
+                    </t>
+                    <!-- ****** -->
+
+
+<!--                        <h3>Qualifications:</h3>-->
+<!--                        <table class="table table-condensed">-->
+<!--                            <thead>-->
+<!--                                <tr>-->
+<!--                                    <th>Qualification Type</th>-->
+<!--                                    <th>Board/University</th>-->
+<!--                                    <th>Passing Year</th>-->
+<!--                                    <th>Percentage</th>-->
+<!--                                    <th>Course Name</th>-->
+<!--                                    <th>Specialization</th>-->
+<!--                                    <th>College Name</th>-->
+<!--                                </tr>-->
+<!--                            </thead>-->
+<!--                            <tbody>-->
+<!--                                <t t-foreach="doc.rel_student_qualification_id"-->
+<!--                                   t-as="qual">-->
+<!--                                    <tr>-->
+<!--                                        <td>-->
+<!--                                            <t t-esc="qual.qualification_type"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-esc="qual.board_university"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-esc="qual.passing_year"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-esc="qual.percentage"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-esc="qual.course_name"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-esc="qual.specialization"/>-->
+<!--                                        </td>-->
+<!--                                        <td>-->
+<!--                                            <t t-esc="qual.college_name"/>-->
+<!--                                        </td>-->
+<!--                                    </tr>-->
+<!--                                </t>-->
+<!--                            </tbody>-->
+<!--                        </table>-->
+
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

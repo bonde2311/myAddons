@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--  Action Nutshell Offer Letter -->
+    <record id="action_nutshell_offer_letters"
+            model="ir.actions.act_window">
+        <field name="name">Letter</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nutshell.letters</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Offer Letter Form View -->
+    <record id="view_nutshell_letters_form"
+            model="ir.ui.view">
+        <field name="name">letter.form</field>
+        <field name="model">nutshell.letters</field>
+        <field name="arch"
+               type="xml">
+            <form string="Nutshell Letters">
+                <header>
+                    <button name="print_offer_letter" string="Print Offer Letter" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <!-- Add computed boolean fields to Assign dAta  -->
+                    <field name="show_offer_details"
+                           invisible="1"/>
+                    <field name="show_joining_details"
+                           invisible="1"/>
+                    <field name="show_certification_details"
+                           invisible="1"/>
+
+                    <!-- Letter category -->
+                    <!--                    <field name="show_internship_content"-->
+                    <!--                           invisible="1"/>-->
+                    <!--                    <field name="show_job_content"-->
+                    <!--                           invisible="1"/>-->
+
+                    <group>
+                        <group>
+                            <field name="name"
+                                   widget="radio"/>
+                        </group>
+                        <group>
+                            <field name="letter_category"
+                                   widget="radio"
+                                   force_save="1"/>
+                        </group>
+                    </group>
+
+                    <div style="text-align:center;">
+                        <field name="header_map"
+                               readonly="1"
+                               style="width:100%; font-size:20px; font-weight:600;
+                                      color:#3E2A6B; background-color:#F5F5F5;
+                                      padding:3px; border-radius:5px;margin-bottom:10px;"/>
+                    </div>
+                    <group>
+                        <group string="Employee Details">
+                            <field name="rel_emp_id"
+                                   options="{'no_create': True}"
+                                   string="Employee Name:"
+                                   force_save="1"/>
+                            <field name="mobile_no"
+                                   readonly="1"
+                                   force_save="1"/>
+                            <field name="work_email"
+                                   readonly="1"
+                                   force_save="1"/>
+                            <field name="email"
+                                   readonly="1"
+                                   force_save="1"/>
+                            <field name="department"
+                                   readonly="1"
+                                   force_save="1"/>
+                            <field name="position"
+                                   readonly="1"
+                                   force_save="1"/>
+                            <field name="city"
+                                   readonly="1"
+                                   force_save="1"/>
+                            <field name="pincode"
+                                   readonly="1"
+                                   force_save="1"/>
+                        </group>
+
+                        <group string="Offer Letter Details"
+                               attrs="{'invisible': [('show_offer_details', '=', False)]}">
+                            <field name="cur_date"/>
+                            <field name="company_id"/>
+                            <field name="subject"/>
+                            <field name="join_date"
+                                   string="Start Date:"/>
+                            <field name="acceptance_date"/>
+                            <field name="location"/>
+                            <field name="current_user_id"/>
+                            <field name="designation"/>
+                            <!--                            <field name="current_user_work_email"/>-->
+                        </group>
+
+                        <group string="Joining Letter Details"
+                               attrs="{'invisible': [('show_joining_details', '=', False)]}">
+                            <field name="cur_date"/>
+                            <field name="company_id"/>
+                            <field name="subject"/>
+                            <field name="join_date"/>
+                            <field name="location"/>
+                            <field name="current_user_id"/>
+                            <field name="designation"/>
+                        </group>
+
+                        <group string="Internship Certificate"
+                               attrs="{'invisible': [('show_certification_details', '=', False)]}">
+                            <field name="cur_date"/>
+                            <field name="rel_emp_id"
+                                   string="Intern Name"/>
+                            <field name="department"/>
+                            <field name="position"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Offer letter Tree View -->
+    <record id="view_nutshell_letters_tree"
+            model="ir.ui.view">
+        <field name="name">letter.tree</field>
+        <field name="model">nutshell.letters</field>
+        <field name="arch"
+               type="xml">
+            <tree string="Letter">
+                <field name="rel_emp_id"/>
+                <field name="company_id"/>
+                <field name="name"/>
+                <field name="join_date"/>
+                <field name="acceptance_date"/>
+                <field name="department"/>
+                <field name="position"/>
+                <field name="location"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--  Menu Item for Nutshell Offer Letter -->
+    <menuitem id="menu_nutshell_offer_letter"
+              name="Nutshell Letters"
+              parent="menu_nutshell"
+              action="action_nutshell_offer_letters"
+              sequence="2"/>
+
+</odoo>

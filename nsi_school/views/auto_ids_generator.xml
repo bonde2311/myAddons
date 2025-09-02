@@ -1,0 +1,54 @@
+<odoo>
+    <data noupdate="1">
+        # for auto generator student fees receipt numbers
+        <record id="seq_school_fees" model="ir.sequence">
+            <field name="name">School Fees Receipt</field>
+            <field name="code">school.fees</field>
+            <field name="prefix">RN-</field>
+            <field name="padding">3</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        # for auto generator admission ids
+        <record id="seq_admissions_is" model="ir.sequence">
+            <field name="name">Admission ID</field>
+            <field name="code">school.admission</field>
+            <field name="prefix">S</field>
+            <field name="padding">5</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        # for auto generator student ids
+        <record id="seq_student_id" model="ir.sequence">
+            <field name="name">Student ID</field>
+            <field name="code">school.student</field>
+            <field name="prefix">ST-</field>
+            <field name="padding">4</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        # for auto generator teacher ids
+        <record id="seq_teacher_id" model="ir.sequence">
+            <field name="name">Teacher ID</field>
+            <field name="code">school.teacher</field>
+            <field name="prefix">TR-</field>
+            <field name="padding">3</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+        # for auto generator Employee ids
+        <record id="seq_emp_id"
+                model="ir.sequence">
+            <field name="name">Employee ID</field>
+            <field name="code">nutshell.employee</field>
+            <field name="prefix">NSI</field>
+            <field name="padding">3</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,67 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_movie_payment_line_tree" model="ir.ui.view">
+        <field name="name">movie.payment.line.tree</field>
+        <field name="model">movie.payment.line</field>
+        <field name="arch" type="xml">
+            <tree string="Actor and Crew Payments">
+                <field name="production_id"/>
+                <field name="role"/>
+                <field name="actor_id"/>
+                <field name="crew_id"/>
+                <field name="total_amount"/>
+                <field name="advance_paid"/>
+                <field name="other_deductions"/>
+                <field name="remaining_amount"/>
+                <field name="payment_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_movie_payment_line_form" model="ir.ui.view">
+        <field name="name">movie.payment.line.form</field>
+        <field name="model">movie.payment.line</field>
+        <field name="arch" type="xml">
+            <form string="Actor and Crew Payment">
+                <sheet>
+                    <group>
+                        <!-- Toggle visibility using flags -->
+                        <field name="role"/>
+                        <field name="is_actor" invisible="1"/>
+                        <field name="is_crew" invisible="1"/>
+                    </group>
+                    <group attrs="{'invisible': [('is_actor', '=', False)]}">
+                        <field name="actor_id"/>
+                    </group>
+                    <group attrs="{'invisible': [('is_crew', '=', False)]}">
+                        <field name="crew_id"/>
+                    </group>
+                    <group>
+                        <field name="production_id"/>
+                        <field name="total_amount"/>
+                        <field name="advance_paid"/>
+                        <field name="other_deductions"/>
+                        <field name="remaining_amount" readonly="1"/>
+                        <field name="payment_status" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_movie_payment_line" model="ir.actions.act_window">
+        <field name="name">Actor and Crew Payments</field>
+        <field name="res_model">movie.payment.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create actor and crew payment records</p>
+        </field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_movie_payment_line" name="Payments"
+              parent="menu_finance_root"
+              action="action_movie_payment_line"/>
+</odoo>

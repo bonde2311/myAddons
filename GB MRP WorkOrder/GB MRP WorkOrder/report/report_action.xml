@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <report
+        id="action_report_work_order"
+        string="Work Order Report"
+        model="mrp.workorder"
+        report_type="qweb-pdf"
+        name="mrp_workorder_enhancement.report_work_order_document"
+        file="mrp_workorder_enhancement.report_work_order_document"
+        print_report_name="'WorkOrder-%s' % (object.name)"
+    />
+</odoo>

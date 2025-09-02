@@ -1,0 +1,188 @@
+<odoo>
+
+    <template id="report_offer_letter">
+        <t t-call="web.html_container">
+            <div class="header"
+                 style="width:100%;">
+                <img src="/nsi_school/static/src/img/header1.png"/>
+            </div>
+
+            <t t-call="web.external_layout">
+                <div class="page"
+                     style="margin-top:140px; padding:20px 100px; font-size:15px;">
+                    <t t-foreach="docs"
+                       t-as="o">
+                        <p class="text-center"
+                           style="color:#3E2A6B; background-color:#F5F5F5; padding:3px; margin-bottom: 10px; font-size:15px;">
+                            <strong>Reg. Office:</strong>
+                            plot No56 Gat No. 25/1/1, Nr. Shivdham Temple, Old Hiway Jalgaon 425003 (MH),
+                            India
+                            <br/>
+                            <strong>Website :</strong>https://nutshellinfosoft.com| info@nutshellinfosoft.com |
+                            <strong>Contact:</strong>
+                            +91 2269646508,
+                            +91 9730070172
+                        </p>
+                        <div style="margin-top:20px; font-size:22px;  font-family:'Times New Roman', Times, serif;">
+                            <p style="text-align: right; font-weight: bold;">
+                                Date:
+                                <strong t-field="o.cur_date"/>
+                            </p>
+                            <div class="letter-content"
+                                 style="margin-top: 20px;">
+                                <span t-field="o.rel_emp_id"/>
+                                <br/>
+                                <span t-field="o.email"/>
+                                <br/>
+                                <span t-field="o.city"/>
+                                <br/>
+                                <p>Maharashtra India</p>
+
+
+                                <!-- Internship Offer Letter content -->
+                                <t t-if="o.letter_category == 'internship'">
+                                    <strong>Subject:</strong>
+                                    <span t-field="o.subject"/>
+                                    <span>Offer Letter for
+                                        <span t-field="o.position"/>
+                                        –
+                                        <span t-field="o.letter_category"/>
+                                    </span>
+                                    <br/>
+                                    <p style="margin-top:10px;">Congratulations! We are pleased to offer you an
+                                        opportunity
+                                        to join
+                                        <strong t-field="o.company_id"/>
+
+                                        as a
+                                        <strong t-field="o.position"/>
+                                        under our
+                                        internship
+                                        program.
+                                        Your performance during the selection process has impressed us, and we are
+                                        excited
+                                        to have you as part of our team.
+                                    </p>
+                                    <div class="internship-details">
+                                        <strong>Internship Details:</strong>
+                                        <ul>
+                                            <li>
+                                                <strong>Position:</strong>
+                                                <span t-field="o.position"/>
+                                                <br/>
+                                            </li>
+                                            <li>
+                                                <strong>Internship Period:</strong>
+                                                6 months (starting from<span t-field="o.join_date"/>)
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <p style="margin:10px 0 0 0;">During your internship, you will be
+                                        involved in live
+                                        projects,
+                                        receive mentorship
+                                        from experienced professionals, and gain hands-on experience in software
+                                        development. We expect you to adhere to the company policies, maintain
+                                        professionalism, and contribute to the best of your abilities.
+                                    </p>
+                                    <p>This internship is intended to be a learning experience
+                                        and does not constitute a
+                                        commitment to full-time employment. However, based on your performance and
+                                        business
+                                        requirements, we may consider you for a permanent position upon completion of
+                                        the
+                                        internship.
+                                    </p>
+                                </t>
+
+                                <!-- Job Offer Letter content -->
+                                <t t-if="o.letter_category == 'job'">
+                                    <strong>Subject:</strong>
+                                    <span t-field="o.subject"/>
+                                    <span>Offer Letter for
+                                        <span t-field="o.position"/>
+                                        –
+                                        <span t-field="o.letter_category"/>
+                                    </span>
+                                    <br/>
+
+
+                                    <!--   job content-->
+                                </t>
+
+
+                                <h3 style="margin-top:10px;">Next Steps:</h3>
+                                <ol>
+                                    <li>Please confirm your acceptance of this offer by signing and returning a scanned
+                                        copy of this letter on or before
+                                        <strong t-field="o.acceptance_date"/>.
+                                    </li>
+                                    <li>Report to our office on the start date mentioned above.</li>
+                                </ol>
+                                <p style="margin:20px 0 0 0;">We are confident that you will make valuable contributions
+                                    to
+                                    our team and look
+                                    forward to seeing your skills and talents in action.
+                                </p>
+                                <p>If you have any questions or need further clarification, please feel free to reach
+                                    out to us at
+                                    <a href='"mailto:" + o.current_user_work_email'>
+                                        <t t-esc="o.current_user_work_email"/>
+                                    </a>
+                                    .
+                                </p>
+                                <span>Once again, congratulations on your selection, and welcome to
+                                    <strong t-field="o.company_id"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="signature"
+                             style="font-family:'Times New Roman', Times, serif; margin-top:30px; font-size:23px;">
+                            <strong>For
+                                <strong t-field="o.company_id"/>
+                            </strong>
+                            <table border="0px solid white"
+                                   width="100%">
+                                <tr style="border:1px solid white;">
+                                    <td>
+                                        <p>
+                                            <img src="/nsi_school/static/src/img/bonde.jpeg"
+                                                 alt="Signature"
+                                                 height="60px"/>
+                                        </p>
+                                        <p>
+                                            <strong>Name:</strong>
+                                            <span t-field="o.current_user_id"/>
+                                            <br/>
+                                            <strong>Designation:</strong>
+                                            <span t-field="o.designation"/>
+                                        </p>
+                                    </td>
+                                    <td width="50%">
+<!--                                        <img src="/nsi_school/static/src/img/kkw2.png"-->
+<!--                                             alt="Nutshell Stamp"-->
+<!--                                             height="60px"/>-->
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </div>
+                <div class="footer">
+                    <div style="color:#3E2A6B; margin-bottom:-80px; padding-left:100px;">
+                        <strong>Corporate Office:</strong>
+                        <span>
+                            Office 602 6nd Floor, Roongtha Business World, Govind Nagar , Nashik 422009, (MH), India.
+                        </span>
+                        <br/>
+                        <strong>CIN :</strong>U72900MH2020PTC350943 |
+                        <strong>GSTIN:</strong>27AAHCN3058K1Z5 |
+                        <strong>MSME:</strong>UDYAM-MH-23-0020073
+                    </div>
+                    <img src="/nsi_school/static/src/img/footer2.png"
+                         alt="footer"/>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

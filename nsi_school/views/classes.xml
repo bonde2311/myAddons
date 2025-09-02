@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_school_class" model="ir.actions.act_window">
+        <field name="name">Class</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.classes</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Create and manage departments here.
+                <br/>
+                <h1>By Durgesh Bagul | Gaurav Bonde</h1>
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_class"
+              name="Class"
+              parent="menu_school_master"
+              action="action_school_class"
+              sequence="5"/>
+
+    <!-- Form View -->
+    <record id="view_classes_form" model="ir.ui.view">
+        <field name="name">classes.form</field>
+        <field name="model">school.classes</field>
+        <field name="arch" type="xml">
+            <form string="Class">
+                <sheet>
+                    <group>
+                        <field name="rel_department_id" required="1" options="{'no_create': True}"/>
+                        <field name="code" required="1"/>
+                        <field name="name" required="1"/>
+                        <field name="cls_active" widget="boolean_toggle"/>
+                        <!--                        <field name="rel_division_id" required="1" options="{'no_create': True}" widget="many2many_tags">-->
+                        <field name="rel_division_id">
+                            <tree create="0" delete="0">
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                    <!--                    <notebook>-->
+                    <!--                        <page string="Divisions">-->
+                    <!--                            <field name="rel_division_id">-->
+                    <!--                                <tree create="0" delete="0">-->
+                    <!--                                    <field name="name"/>-->
+                    <!--&lt;!&ndash;                                    <field name="student_name"/>&ndash;&gt;-->
+                    <!--                                </tree>-->
+                    <!--                            </field>-->
+                    <!--                        </page>-->
+                    <!--                    </notebook>-->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_classes_tree" model="ir.ui.view">
+        <field name="name">classes.tree</field>
+        <field name="model">school.classes</field>
+        <field name="arch" type="xml">
+            <tree string="Class">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="cls_active" widget="boolean_toggle"/>
+                <field name="rel_division_id"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

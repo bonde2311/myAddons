@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+
+    <!--  Action Nutshell employee -->
+    <record id="action_nutshell_employee"
+            model="ir.actions.act_window">
+        <field name="name">Employee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">nutshell.employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    Form View
+    <record id="view_nutshell_employee_form"
+            model="ir.ui.view">
+        <field name="name">nutshell.employee.form</field>
+        <field name="model">nutshell.employee</field>
+        <field name="arch"
+               type="xml">
+            <form string="Nutshell Employee">
+                <sheet>
+                    <group>
+                        <field name="emp_pic"
+                               widget="image"
+                               class="oe_avatar"
+                               options="{'size': [128, 128]}"/>
+                        <field name="name"/>
+                        <field name="mobile_no"/>
+                        <field name="email"/>
+                        <field name="work_email"/>
+                        <field name="department"/>
+                        <field name="position"/>
+                        <field name="city"/>
+                        <field name="pincode"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <!--    <record id="view_letters_tree"-->
+    <!--            model="ir.ui.view">-->
+    <!--        <field name="name">letters.tree</field>-->
+    <!--        <field name="model">nut</field>-->
+    <!--        <field name="arch"-->
+    <!--               type="xml">-->
+    <!--            <tree string="Attendance">-->
+    <!--                <field name="date"/>-->
+    <!--                <field name="rel_student_id"/>-->
+    <!--                <field name="student_name"/>-->
+    <!--                <field name="student_department"/>-->
+    <!--                <field name="student_class"/>-->
+    <!--                <field name="student_division"/>-->
+    <!--                <field name="status"-->
+    <!--                       widget="badge"-->
+    <!--                       decoration-success="status == 'present'"-->
+    <!--                       decoration-danger="status == 'absent'"-->
+    <!--                       decoration-info="status == 'late'"/>-->
+    <!--            </tree>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+
+    <!-- Menu Item -->
+    <menuitem id="menu_nutshell_employee"
+              name="Employee"
+              parent="menu_nutshell"
+              action="action_nutshell_employee"
+              sequence="1"/>
+
+
+</odoo>

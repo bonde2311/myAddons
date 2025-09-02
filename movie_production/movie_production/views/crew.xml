@@ -1,0 +1,122 @@
+<odoo>
+
+    <!--   Durgesh Bagul & Gaurav Bonde (22/05/2025)    -->
+
+    <!-- Form View: Crew Member -->
+    <record id="view_form_movie_crew" model="ir.ui.view">
+        <field name="name">movie.crew.form</field>
+        <field name="model">movie.crew</field>
+        <field name="arch" type="xml">
+            <form string="Crew Member">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                              <field name="image" widget="image" class="oe_avatar"/>
+                            <field name="experience"/>
+                            <field name="dob"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="contact"/>
+                            <field name="email"/>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="biography"/>
+                    </group>
+                    <notebook>
+                        <page string="Assigned Productions">
+                            <field name="production_ids" widget="many2many_tags"/>
+                        </page>
+                        <page string="Crew Positions">
+                            <field name="position_ids" />
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View: Crew Member -->
+    <record id="view_tree_movie_crew" model="ir.ui.view">
+        <field name="name">movie.crew.tree</field>
+        <field name="model">movie.crew</field>
+        <field name="arch" type="xml">
+            <tree string="Crew Members">
+                <field name="name"/>
+                <field name="experience"/>
+                <field name="gender"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action: Crew Member -->
+    <record id="action_movie_crew" model="ir.actions.act_window">
+        <field name="name">Crew Members</field>
+        <field name="res_model">movie.crew</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Form View: Crew Role -->
+    <record id="view_form_movie_crew_positions" model="ir.ui.view">
+        <field name="name">movie.crew.position.form</field>
+        <field name="model">movie.crew.position</field>
+        <field name="arch" type="xml">
+            <form string="Crew Role">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="is_technical"/>
+                        <field name="active"/>
+                    </group>
+                    <group>
+                        <field name="crew_ids" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View: Crew Role -->
+    <record id="view_tree_movie_crew_positions" model="ir.ui.view">
+        <field name="name">movie.crew.position.tree</field>
+        <field name="model">movie.crew.position</field>
+        <field name="arch" type="xml">
+            <tree string="Crew Roles">
+                <field name="name"/>
+                <field name="is_technical"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action: Crew Role -->
+    <record id="action_movie_crew_positions" model="ir.actions.act_window">
+        <field name="name">Crew Positions</field>
+        <field name="res_model">movie.crew.position</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Submenu: Crew Management -->
+    <menuitem id="menu_movie_crew" name="Crew Management" parent="movie_root_menu" sequence="10"/>
+
+    <!-- Menu Items: Crew Members & Crew Roles -->
+    <menuitem id="menu_movie_crew_members"
+              name="Crew Members"
+              parent="menu_movie_crew"
+              action="action_movie_crew"
+             sequence="9"/>
+
+    <menuitem id="menu_movie_crew_position"
+              name="Crew Position"
+              parent="menu_movie_crew"
+              action="action_movie_crew_positions"
+              sequence="2"/>
+
+</odoo>

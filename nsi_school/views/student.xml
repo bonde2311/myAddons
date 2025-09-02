@@ -1,0 +1,210 @@
+<odoo>
+    <data>
+        <!-- Kanban View -->
+        <!--        <record id="view_kanban_school_student"-->
+        <!--                model="ir.ui.view">-->
+        <!--            <field name="name">school.student.kanban</field>-->
+        <!--            <field name="model">school.student</field>-->
+        <!--            <field name="arch"-->
+        <!--                   type="xml">-->
+        <!--                <kanban class="o_kanban_view">-->
+        <!--                    <field name="student_id"/>-->
+        <!--                    <field name="student_name"/>-->
+        <!--                    <field name="email"/>-->
+        <!--                    <field name="mobile_no"/>-->
+        <!--                    <field name="rel_department_id"/>-->
+        <!--                    <field name="rel_class_id"/>-->
+        <!--                    <field name="rel_division_id"/>-->
+        <!--                    <field name="profile_pic"-->
+        <!--                           modifiers="{&quot;readonly&quot;: true}"/>-->
+
+        <!--                    <templates>-->
+        <!--                        <t t-name="kanban-box">-->
+        <!--                            <div class="oe_kanban_card "-->
+        <!--                                 style="display: flex; align-items: center; gap: 10px;">-->
+        <!--                                &lt;!&ndash; Profile Picture &ndash;&gt;-->
+        <!--                                <div class="oe_kanban_image"-->
+        <!--                                     style="background-color:yellow;">-->
+        <!--                                    <field name="profile_pic"-->
+        <!--                                           preview_image="profile_pic"-->
+        <!--                                           widget="image"-->
+        <!--                                           options="{'zoom': true, 'zoom_delay': 1000}"-->
+        <!--                                           modifiers="{&quot;readonly&quot;: true}"-->
+        <!--                                           style=" width: 100px;height: 100%;"/>-->
+        <!--                                </div>-->
+        <!--                                &lt;!&ndash; Student Information &ndash;&gt;-->
+        <!--                                <div class="oe_kanban_details">-->
+        <!--                                    <strong t-esc="record.student_name.value"-->
+        <!--                                            style="background-color:#F2F9FF; padding:2px 4px; border-radius:5px;color:black;"/>-->
+        <!--                                    <br/>-->
+        <!--                                    <span style="color: #3E2A6B; font-weight:600;">Email:</span>-->
+        <!--                                    <t t-esc="record.email.value"/>-->
+        <!--                                    <br/>-->
+        <!--                                    <span style="color: #3E2A6B; font-weight:600;">Mobile No:</span>-->
+        <!--                                    <t t-esc="record.mobile_no.value"/>-->
+        <!--                                    <br/>-->
+        <!--                                    <span style="color: #3E2A6B; font-weight:600;">Department:</span>-->
+        <!--                                    <t t-esc="record.rel_department_id.value"/>-->
+        <!--                                    <br/>-->
+        <!--                                    <span style="color: #3E2A6B; font-weight:600;">Class:</span>-->
+        <!--                                    <t t-esc="record.rel_class_id.value"/>-->
+        <!--                                    <span>=>(-->
+        <!--                                        <t t-esc="record.rel_division_id.value"/>-->
+        <!--                                        )-->
+        <!--                                    </span>-->
+        <!--                                </div>-->
+        <!--                            </div>-->
+        <!--                        </t>-->
+        <!--                    </templates>-->
+        <!--                </kanban>-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!-- Form View -->
+        <record id="view_form_school_student"
+                model="ir.ui.view">
+            <field name="name">school.student.form</field>
+            <field name="model">school.student</field>
+            <field name="arch"
+                   type="xml">
+                <form string="Student Records">
+                    <sheet>
+                        <field name="student_id"
+                               invisible="1"/>
+                        <div style="text-align:center;">
+                            <h2 style="color:#3E2A6B; font-weight:600; background-colo r:#F5F5F5; padding:3px; border-radius:5px;margin-bottom:10px;">
+                                Student Profile Registration
+                            </h2>
+                        </div>
+                        <group string="Personal Details">
+                            <group>
+                                <field name="student_name"/>
+                                <field name="father_name"/>
+                                <field name="mother_name"/>
+                                <field name="email"
+                                       widget="email"/>
+                                <field name="mobile_no"
+                                       widget="phone"/>
+                                <field name="birth_date"/>
+                            </group>
+                            <group>
+                                <field name="gender"
+                                       widget="radio"/>
+                                <field name="age"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="profile_pic"
+                                   widget="image"
+                                   class="oe_avatar"
+                                   options="{'size': [128, 128]}"/>
+                            <field name="student_sign"
+                                   widget="image"
+                                   class="oe_avatar"
+                                   options="{'size': [128, 100]}"/>
+                        </group>
+                        <group>
+                            <group string="Academic Details">
+                                <field name="rel_department_id"/>
+                                <field name="rel_class_id"/>
+                            </group>
+                            <group string="Documents">
+                                <field name="aadhar_file"
+                                       widget="binary"
+                                       nolabel="0"/>
+                                <field name="pan_card"
+                                       widget="binary"
+                                       nolabel="0"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Admission Details">
+                                <field name="rel_admission_id">
+                                    <tree create="0"
+                                          delete="0">
+                                        <field name="name"/>
+                                        <field name="date"/>
+                                        <field name="status"
+                                               widget="badge"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Fees Structure">
+                                <field name="rel_fees_id">
+                                    <tree create="0"
+                                          delete="0">
+                                        <field name="name"/>
+                                        <field name="fee_date"/>
+                                        <field name="payment_status"
+                                               widget="badge"/>
+                                    </tree>
+                                </field>
+                            </page>
+                            <page string="Attendance Records">
+                                <field name="rel_attendance_id">
+                                    <tree create="0"
+                                          delete="0">
+                                        <field name="date"/>
+                                        <field name="status"
+                                               widget="badge"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View -->
+        <record id="view_tree_school_student"
+                model="ir.ui.view">
+            <field name="name">school.student.tree</field>
+            <field name="model">school.student</field>
+            <field name="arch"
+                   type="xml">
+                <tree string="Student Records">
+                    <field name="student_id"
+                           widget="badge"/>
+                    <field name="profile_pic"
+                           widget="image"
+                           options="{'size': [40,40]}"/>
+                    <field name="student_name"/>
+                    <field name="email"
+                           widget="email"/>
+                    <field name="mobile_no"
+                           widget="phone"/>
+                    <field name="gender"/>
+                    <field name="birth_date"/>
+                    <field name="age"/>
+                    <field name="rel_admission_id"/>
+                    <field name="rel_department_id"/>
+                    <field name="rel_class_id"/>
+                    <field name="rel_division_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_school_student"
+                model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">school.student</field>
+            <field name="view_mode">tree,kanban,form</field>
+            <field name="help"
+                   type="html">
+                <p>Create and manage students here.</p>
+                <h1>By Durgesh Bagul | Gaurav Bonde</h1>
+            </field>
+        </record>
+
+        <!-- Menu Item -->
+        <menuitem id="menu_student"
+                  name="Student"
+                  parent="menu_school_master"
+                  action="action_school_student"
+                  sequence="1"/>
+    </data>
+</odoo>

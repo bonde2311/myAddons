@@ -1,0 +1,137 @@
+<odoo>
+    <!-- Sponsor Tree View -->
+    <record id="view_movie_sponsor_tree" model="ir.ui.view">
+        <field name="name">movie.sponsor.tree</field>
+        <field name="model">movie.sponsor</field>
+        <field name="arch" type="xml">
+            <tree string="Sponsors">
+                <field name="name"/>
+                <field name="company_name"/>
+                <field name="sponsor_type"/>
+                <field name="sponsorship_amount"/>
+                <field name="paid_amount"/>
+                <field name="due_amount"/>
+                <field name="payment_status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Sponsor Form View -->
+    <record id="view_movie_sponsor_form" model="ir.ui.view">
+        <field name="name">movie.sponsor.form</field>
+        <field name="model">movie.sponsor</field>
+        <field name="arch" type="xml">
+            <form string="Sponsor">
+                <sheet>
+
+                    <!-- Hidden flags needed for attrs -->
+                    <field name="is_finance" invisible="1"/>
+                    <field name="is_brand" invisible="1"/>
+                    <field name="is_product" invisible="1"/>
+                    <field name="is_media" invisible="1"/>
+                    <field name="show_cash_fields" invisible="1"/>
+                    <field name="show_cheque_fields" invisible="1"/>
+                    <field name="show_bank_fields" invisible="1"/>
+
+                    <group string="General Info">
+                        <group>
+                            <field name="name"/>
+                            <field name="company_name"/>
+                            <field name="sponsor_type"/>
+                            <field name="contact_person"/>
+                            <field name="logo" widget="image" class="oe_avatar"/>
+                            <field name="email"/>
+                            <field name="phone"/>
+                            <field name="website"/>
+                        </group>
+
+                        <group string="Finance Details" attrs="{'invisible': [('is_finance','=',False)]}">
+                            <field name="finance_payment_mode"/>
+
+                            <!-- Cash Fields -->
+                            <group string="Cash Details" attrs="{'invisible': [('show_cash_fields', '=', False)]}">
+                                <field name="cash_amount"/>
+                                <field name="cash_paid_by"/>
+                                <field name="cash_receipt_number"/>
+                            </group>
+                            <!-- Bank Transfer Fields -->
+                            <group string="Bank Transfer Details"
+                                   attrs="{'invisible': [('show_bank_fields', '=', False)]}">
+                                <field name="account_number"/>
+                                <field name="bank_transfer_amount"/>
+                                <field name="transfer_by"/>
+                                <field name="transaction_id"/>
+                                <field name="transfer_date"/>
+                            </group>
+                                  <!-- Cheque Fields -->
+                            <group string="Cheque Details" attrs="{'invisible': [('show_cheque_fields', '=', False)]}">
+                                <field name="cheque_number"/>
+                                <field name="cheque_holder_name"/>
+                                <field name="cheque_amount"/>
+                                <field name="cheque_date"/>
+                                <field name="cheque_due_date"/>
+                                <field name="finance_bank_name"/>
+                            </group>
+                        </group>
+
+                        <!-- Brand Collaboration -->
+                        <group string="Brand Collaboration Details" attrs="{'invisible': [('is_brand','=',False)]}">
+                            <field name="brand_product"/>
+                            <field name="brand_logo"/>
+                            <field name="brand_duration"/>
+                            <field name="brand_mention_type"/>
+                            <field name="brand_social_handles"/>
+                        </group>
+
+                        <!-- Product Placement -->
+                        <group string="Product Placement Details" attrs="{'invisible': [('is_product','=',False)]}">
+                            <field name="product_name"/>
+                            <field name="product_category"/>
+                            <field name="product_quantity_provided"/>
+                            <field name="product_used_scenes"/>
+                        </group>
+
+                        <!-- Media Sponsor -->
+                        <group string="Media Sponsor Details" attrs="{'invisible': [('is_media','=',False)]}">
+                            <field name="media_channel"/>
+                            <field name="media_airing_schedule"/>
+                            <field name="media_ad_type"/>
+                            <field name="media_slot_duration"/>
+                            <field name="media_total_slots"/>
+                        </group>
+
+
+                    </group>
+                      <group>
+                            <!-- Payment Details -->
+                        <group string="Payment Details">
+                            <field name="sponsorship_amount"/>
+                            <field name="paid_amount"/>
+                            <field name="due_amount" readonly="1"/>
+                            <field name="payment_status" widget="statusbar"/>
+                            <field name="payment_terms"/>
+                        </group>
+                               <!-- Contract Info -->
+                        <group string="Contract Info">
+                            <field name="contract_number"/>
+                            <field name="contract_attachment"/>
+                            <field name="agreement_date"/>
+                              <field name="contract_signed"/>
+                        </group>
+                        </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Action for Sponsors -->
+    <record id="action_movie_sponsor" model="ir.actions.act_window">
+        <field name="name">Sponsors</field>
+        <field name="res_model">movie.sponsor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu: Top Level (outside production) -->
+    <menuitem id="menu_movie_sponsor_root" name="Sponsors" parent="menu_finance_root" sequence="90"/>
+    <menuitem id="menu_movie_sponsor" name="Manage Sponsors" parent="menu_movie_sponsor_root"
+              action="action_movie_sponsor" sequence="1"/>
+</odoo>

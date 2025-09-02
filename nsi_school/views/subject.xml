@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_school_subject" model="ir.actions.act_window">
+        <field name="name">Subjects</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.subject</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Create and manage subjects here.
+                <br/>
+                <h1>By Durgesh Bagul | Gaurav Bonde</h1>
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_subject"
+              name="Subject"
+              parent="menu_school_master"
+              action="action_school_subject"
+              sequence="6"/>
+
+    <!-- Form View -->
+    <record id="view_subject_form" model="ir.ui.view">
+        <field name="name">subject.form</field>
+        <field name="model">school.subject</field>
+        <field name="arch" type="xml">
+            <form string="Subject">
+                <sheet>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="sub_code" required="1"/>
+                        <field name="rel_teacher_id" widget="many2many_tags" options="{'no_create': True}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_subject_tree" model="ir.ui.view">
+        <field name="name">subject.tree</field>
+        <field name="model">school.subject</field>
+        <field name="arch" type="xml">
+            <tree string="Subject">
+                <field name="sub_code"/>
+                <field name="name"/>
+                <field name="rel_teacher_id" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

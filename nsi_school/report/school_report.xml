@@ -1,0 +1,55 @@
+<odoo>
+
+    <!-- This record for student fees reporting -->
+    <!--    <record id="action_report_student_fees" model="ir.actions.report">-->
+    <!--        <field name="name">Student Fees Receipt</field>-->
+    <!--        <field name="model">school.fees</field>-->
+    <!--        <field name="report_type">qweb-pdf</field>-->
+    <!--        <field name="report_name">nsi_school.report_student_fees</field>-->
+    <!--        <field name="report_file">nsi_school.report_student_fees</field>-->
+    <!--        <field name="binding_model_id" ref="model_school_fees"/>-->
+    <!--    </record>-->
+    <report id="report_student_fees_action"
+            string="Student Fees Receipt"
+            model="school.fees"
+            report_type="qweb-pdf"
+            file="nsi_school.report_student_fees"
+            name="nsi_school.report_student_fees"
+            print_report_name="'Receipt_%s' % (object.name)"/>
+
+    <!-- This record for student Admission Details -->
+    <record id="action_report_student_admission"
+            model="ir.actions.report">
+        <field name="name">Student Admission Form</field>
+        <field name="model">school.admission</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nsi_school.report_student_admission</field>
+        <field name="report_file">nsi_school.report_student_admission</field>
+        <field name="binding_model_id"
+               ref="model_school_admission"/>
+    </record>
+
+    <!-- This record for student ID reporting -->
+    <record id="action_report_student"
+            model="ir.actions.report">
+        <field name="name">Student ID Card</field>
+        <field name="model">school.student</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nsi_school.report_student</field>
+        <field name="report_file">nsi_school.report_student</field>
+        <field name="binding_model_id"
+               ref="model_school_student"/>
+    </record>
+
+    <!-- This record for Teacher ID reporting -->
+    <record id="action_report_teacher"
+            model="ir.actions.report">
+        <field name="name">Teacher ID Card</field>
+        <field name="model">school.teacher</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">nsi_school.report_teacher</field>
+        <field name="report_file">nsi_school.report_teacher</field>
+        <field name="binding_model_id"
+               ref="model_school_teacher"/>
+    </record>
+</odoo>

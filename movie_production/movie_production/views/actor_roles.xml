@@ -1,0 +1,50 @@
+<odoo>
+
+    <!--   Durgesh Bagul & Gaurav Bonde (20/05/2025)    -->
+
+    <!--    Actor Role Form Views   -->
+    <record id="view_form_actor_role" model="ir.ui.view">
+        <field name="name">movie.actor.role.form</field>
+        <field name="model">movie.actor.role</field>
+        <field name="arch" type="xml">
+            <form string="Actor Role">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="desc"/>
+                        <field name="production_ids"/>
+                        <field name="actor_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    Actor Role Tree Views   -->
+    <record id="view_tree_actor_role" model="ir.ui.view">
+        <field name="name">movie.actor.role.tree</field>
+        <field name="model">movie.actor.role</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="actor_ids"/>
+                <field name="production_ids"/>
+                <field name="name"/>
+                <field name="desc"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--   Action for Actor Role    -->
+    <record id="action_actor_roles" model="ir.actions.act_window">
+        <field name="name">Actor Roles</field>
+        <field name="res_model">movie.actor.role</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--   Menu for Actor Roles    -->
+    <menuitem id="menu_movie_actor_role" name="Roles" parent="menu_actor_management" action="action_actor_roles"
+              sequence="4"/>
+
+</odoo>

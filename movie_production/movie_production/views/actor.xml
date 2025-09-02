@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--   Durgesh Bagul & Gaurav Bonde (19/05/2025)    -->
+    <!--   Form view for Actors    -->
+    <record id="view_form_movie_actor" model="ir.ui.view">
+        <field name="name">movie.actor.form</field>
+        <field name="model">movie.actor</field>
+        <field name="arch" type="xml">
+            <form string="Movie Actor">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="dob"/>
+                            <field name="age" readonly="1"/>
+                            <field name="gender"/>
+                            <field name="nationality"/>
+                            <field name="contact_number"/>
+                            <field name="email"/>
+                        </group>
+                        <group>
+                            <field name="act_Image" widget="image"
+                                   options="{'size': [120,120]}"/>
+                            <field name="address"/>
+                            <field name="biography"/>
+                            <field name="cast"/>
+                            <field name="manager_contact"/>
+                            <field name="is_active"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Roles">
+                            <field name="role_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="desc"/>
+                                    <field name="production_ids"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Productions">
+                            <field name="production_id"/>
+                        </page>
+                        <page string="Schedules">
+                            <field name="schedule_ids"/>
+                        </page>
+
+                        <page string="Portfolios">
+                            <field name="portfolio_id">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Attendance">
+                            <field name="attendance_ids">
+                                <tree>
+                                    <field name="participant_type"/>
+                                    <field name="check_in"/>
+                                    <field name="check_out"/>
+                                    <field name="duration"/>
+                                    <field name="state"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--   Tree view for Actors   -->
+    <record id="view_tree_movie_actor" model="ir.ui.view">
+        <field name="name">movie.actor.tree</field>
+        <field name="model">movie.actor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="email"/>
+                <field name="contact_number"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!--   Search view for Actors    -->
+    <record id="view_search_movie_actor" model="ir.ui.view">
+        <field name="name">movie.actor.search</field>
+        <field name="model">movie.actor</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="gender"/>
+                <field name="nationality"/>
+                <filter name="active" string="Active" domain="[('is_active','=',True)]"/>
+            </search>
+        </field>
+    </record>
+
+
+    <!-- Actions for Actors -->
+    <record id="action_movie_actor" model="ir.actions.act_window">
+        <field name="name">Movie Actors</field>
+        <field name="res_model">movie.actor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Menu for Actors -->
+    <menuitem id="menu_movie_actor" name="Actors" parent="menu_actor_management" action="action_movie_actor"/>
+
+</odoo>

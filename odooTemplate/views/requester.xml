@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Tree View -->
+    <record id="view_custom_requester_tree" model="ir.ui.view">
+        <field name="name">custom.requester.tree</field>
+        <field name="model">custom.requester</field>
+        <field name="arch" type="xml">
+            <tree string="Requesters">
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_custom_requester_form" model="ir.ui.view">
+        <field name="name">custom.requester.form</field>
+        <field name="model">custom.requester</field>
+        <field name="arch" type="xml">
+            <form string="Requester">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Requester Action -->
+    <record id="action_custom_requester" model="ir.actions.act_window">
+        <field name="name">Requesters</field>
+        <field name="res_model">custom.requester</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_requesters" name="Requesters"
+              parent="menu_custom_partner_root"
+              action="action_custom_requester"/>
+
+
+</odoo>

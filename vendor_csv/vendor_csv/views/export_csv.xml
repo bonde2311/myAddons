@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_vendor_bill_export_wizard" model="ir.ui.view">
+        <field name="name">vendor.bill.export.wizard.form</field>
+        <field name="model">vendor.bill.export.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Exp Vendor Bills csv">
+                <group string="Select Dates:">
+                    <field name="from_date"/>
+                    <field name="to_date"/>
+                </group>
+                <footer>
+                    <button name="action_export" type="object" string="Export CSV File" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_vendor_bill_export" model="ir.actions.act_window">
+        <field name="name">Vendor Bills Export CSV</field>
+        <field name="res_model">vendor.bill.export.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem id="menu_vendor_bill_export_csv"
+              name="Export CSV Vendor Bills"
+              parent="account.menu_finance_payables"
+              action="action_vendor_bill_export"/>
+</odoo>

@@ -1,0 +1,135 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<odoo>-->
+
+<!--    &lt;!&ndash; Movie Contract Tree View &ndash;&gt;-->
+<!--    <record id="view_movie_contract_tree" model="ir.ui.view">-->
+<!--        <field name="name">movie.contract.tree</field>-->
+<!--        <field name="model">movie.contract</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree>-->
+<!--                <field name="name"/>-->
+<!--                <field name="production_id"/>-->
+<!--                <field name="actor_id"/>-->
+<!--                <field name="crew_id"/>-->
+<!--&lt;!&ndash;                <field name="theatre_id"/>&ndash;&gt;-->
+<!--                <field name="contract_type"/>-->
+<!--                <field name="start_date"/>-->
+<!--                <field name="end_date"/>-->
+<!--                <field name="agreed_amount"/>-->
+<!--                <field name="status"/>-->
+<!--                <field name="signed"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Movie Contract Form View &ndash;&gt;-->
+<!--    <record id="view_movie_contract_form" model="ir.ui.view">-->
+<!--        <field name="name">movie.contract.form</field>-->
+<!--        <field name="model">movie.contract</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Movie Contract">-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <group>-->
+<!--                            <field name="name"/>-->
+<!--                            <field name="production_id"/>-->
+<!--                            <field name="theatre_id"/>-->
+<!--                            <field name="actor_id"/>-->
+<!--                            <field name="crew_id"/>-->
+<!--                            <field name="partner_id" required="1"/>-->
+
+
+<!--                        </group>-->
+<!--                        <group>-->
+<!--                            <field name="contract_type"/>-->
+<!--                            <field name="start_date"/>-->
+<!--                            <field name="end_date"/>-->
+<!--                            <field name="agreed_amount"/>-->
+<!--                            <field name="currency_id"/>-->
+<!--                            <field name="status"/>-->
+<!--                            <field name="signed"/>-->
+<!--                        </group>-->
+<!--                    </group>-->
+<!--                    <notebook>-->
+<!--                        <page string="Terms Notes">-->
+<!--                            <field name="terms"/>-->
+<!--                            <field name="notes"/>-->
+<!--                        </page>-->
+<!--                        <page string="Payments">-->
+<!--                            <field name="payment_ids">-->
+<!--                                <tree editable="bottom">-->
+<!--                                    <field name="payment_date"/>-->
+<!--                                    <field name="payment_type"/>-->
+<!--                                    <field name="amount"/>-->
+<!--                                    <field name="is_paid"/>-->
+<!--                                    <field name="remaining_amount" readonly="1"/>-->
+<!--                                    <field name="remarks"/>-->
+<!--                                </tree>-->
+<!--                            </field>-->
+<!--                        </page>-->
+<!--                    </notebook>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Movie Payment Tree View &ndash;&gt;-->
+<!--    <record id="view_movie_payment_tree" model="ir.ui.view">-->
+<!--        <field name="name">movie.payment.tree</field>-->
+<!--        <field name="model">movie.payment</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree>-->
+<!--                <field name="contract_id"/>-->
+<!--                <field name="payment_type"/>-->
+<!--                <field name="amount"/>-->
+<!--                <field name="payment_date"/>-->
+<!--                <field name="is_paid"/>-->
+<!--                <field name="remaining_amount"/>-->
+<!--                <field name="remarks"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Movie Payment Form View &ndash;&gt;-->
+<!--    <record id="view_movie_payment_form" model="ir.ui.view">-->
+<!--        <field name="name">movie.payment.form</field>-->
+<!--        <field name="model">movie.payment</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Payment">-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <field name="contract_id"/>-->
+<!--                        <field name="payment_type"/>-->
+<!--                        <field name="amount"/>-->
+<!--                        <field name="currency_id"/>-->
+<!--                        <field name="payment_date"/>-->
+<!--                        <field name="is_paid"/>-->
+<!--                        <field name="remaining_amount" readonly="1"/>-->
+<!--                        <field name="remarks"/>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Actions &ndash;&gt;-->
+<!--    <record id="action_movie_contract" model="ir.actions.act_window">-->
+<!--        <field name="name">Contracts</field>-->
+<!--        <field name="res_model">movie.contract</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--    <record id="action_movie_payment" model="ir.actions.act_window">-->
+<!--        <field name="name">Payments</field>-->
+<!--        <field name="res_model">movie.payment</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--    &lt;!&ndash; Menu Items &ndash;&gt;-->
+<!--    <menuitem id="menu_movie_root" name="Movie Management"/>-->
+
+<!--    <menuitem id="menu_movie_contract_root" name="Contracts" parent="menu_movie_root" sequence="10"/>-->
+<!--    <menuitem id="menu_movie_contract" name="All Contracts" parent="menu_movie_contract_root" action="action_movie_contract"/>-->
+<!--    <menuitem id="menu_movie_payment" name="All Payments" parent="menu_movie_contract_root" action="action_movie_payment"/>-->
+
+<!--</odoo>-->

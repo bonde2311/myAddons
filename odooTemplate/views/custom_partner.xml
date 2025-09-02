@@ -1,0 +1,49 @@
+<odoo>
+    <record id="view_custom_partner_form" model="ir.ui.view">
+        <field name="name">custom.partner.form</field>
+        <field name="model">custom.partner</field>
+        <field name="arch" type="xml">
+            <form string="Customer/Vendor">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="partner_type"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="address"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_custom_partner_tree" model="ir.ui.view">
+        <field name="name">custom.partner.tree</field>
+        <field name="model">custom.partner</field>
+        <field name="arch" type="xml">
+            <tree string="Customer/Vendor">
+                <field name="name"/>
+                <field name="partner_type"/>
+                <field name="email"/>
+                <field name="phone"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action (must come before menu uses it) -->
+    <record id="action_custom_partner" model="ir.actions.act_window">
+        <field name="name">Customer/Vendor</field>
+        <field name="res_model">custom.partner</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menus -->
+    <menuitem id="menu_custom_partner_root"
+              name="Customer/Vendor"
+              parent="legel_document_initiations_menu_root"/>
+
+    <menuitem id="menu_custom_partner"
+              name="Customer/Vendor Master"
+              parent="menu_custom_partner_root"
+              action="action_custom_partner"/>
+</odoo>

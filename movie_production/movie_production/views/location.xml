@@ -1,0 +1,51 @@
+<odoo>
+
+    <!--   Durgesh Bagul & Gaurav Bonde (22/05/2025)    -->
+
+    <!-- Form View Location -->
+    <record id="view_movie_location_form" model="ir.ui.view">
+        <field name="name">movie.location.
+            form</field>
+        <field name="model">movie.location</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="address"/>
+                        <field name="city"/>
+                        <field name="available_from"/>
+                        <field name="available_to"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Tree View Location -->
+    <record id="view_movie_location_tree" model="ir.ui.view">
+        <field name="name">movie.location.tree</field>
+        <field name="model">movie.location</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="city"/>
+                <field name="available_from"/>
+                <field name="available_to"/>
+            </tree>
+        </field>
+    </record>
+
+      <!-- Action Movie Location-->
+    <record id="action_movie_location" model="ir.actions.act_window">
+        <field name="name">Locations</field>
+        <field name="res_model">movie.location</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Menu Item Locations-->
+
+    <menuitem id="menu_movie_location" name="Locations" parent="menu_movie_management" action="action_movie_location" sequence="10"/>
+</odoo>

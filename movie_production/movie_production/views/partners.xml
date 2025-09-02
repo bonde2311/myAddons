@@ -1,0 +1,751 @@
+<odoo>
+  <!-- Main Partners Menu -->
+  <menuitem id="menu_partners_root" name="Partners" parent="menu_movie_marketing_root" sequence="10"/>
+
+  <!-- Music Partner -->
+  <record id="view_partner_music_tree" model="ir.ui.view">
+    <field name="name">partner.music.tree</field>
+    <field name="model">partner.music</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="owner_name"/>
+        <field name="production_date"/>
+        <field name="music_rights_type"/>
+        <field name="number_of_tracks"/>
+        <field name="release_platform"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_partner_music_form" model="ir.ui.view">
+    <field name="name">partner.music.form</field>
+    <field name="model">partner.music</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+              <field name="logo" widget="image" class="oe_avatar"/>
+            <field name="owner_name"/>
+            <field name="production_date"/>
+            <field name="music_rights_type"/>
+            <field name="number_of_tracks"/>
+            <field name="release_platform"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_partner_music" model="ir.actions.act_window">
+    <field name="name">Music Partners</field>
+    <field name="res_model">partner.music</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_partner_music" name="Music Partners" parent="menu_partners_root" action="action_partner_music" sequence="1"/>
+
+  <!-- TV Partner -->
+  <record id="view_partner_tv_tree" model="ir.ui.view">
+    <field name="name">partner.tv.tree</field>
+    <field name="model">partner.tv</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="channel_name"/>
+        <field name="license_start_date"/>
+        <field name="license_duration"/>
+        <field name="language"/>
+        <field name="contact_email"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_partner_tv_form" model="ir.ui.view">
+    <field name="name">partner.tv.form</field>
+    <field name="model">partner.tv</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+               <field name="logo" widget="image"  class="oe_avatar"/>
+            <field name="channel_name"/>
+            <field name="license_start_date"/>
+            <field name="license_duration"/>
+            <field name="language"/>
+            <field name="contact_email"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_partner_tv" model="ir.actions.act_window">
+    <field name="name">TV Partners</field>
+    <field name="res_model">partner.tv</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_partner_tv" name="TV Partners" parent="menu_partners_root" action="action_partner_tv" sequence="2"/>
+
+  <!-- OTT Partner -->
+  <record id="view_partner_ott_tree" model="ir.ui.view">
+    <field name="name">partner.ott.tree</field>
+    <field name="model">partner.ott</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="platform_url"/>
+        <field name="app_available"/>
+        <field name="release_date"/>
+        <field name="exclusive_deal"/>
+        <field name="subscription_type"/>
+        <field name="contact_email"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_partner_ott_form" model="ir.ui.view">
+    <field name="name">partner.ott.form</field>
+    <field name="model">partner.ott</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+              <field name="logo" widget="image"  class="oe_avatar"/>
+            <field name="platform_url"/>
+            <field name="app_available"/>
+            <field name="release_date"/>
+            <field name="exclusive_deal"/>
+            <field name="subscription_type"/>
+            <field name="contact_email"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_partner_ott" model="ir.actions.act_window">
+    <field name="name">OTT Partners</field>
+    <field name="res_model">partner.ott</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_partner_ott" name="OTT Partners" parent="menu_partners_root" action="action_partner_ott" sequence="3"/>
+
+  <!-- Radio Partner -->
+  <record id="view_partner_radio_tree" model="ir.ui.view">
+    <field name="name">partner.radio.tree</field>
+    <field name="model">partner.radio</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="station_name"/>
+        <field name="frequency"/>
+        <field name="coverage_area"/>
+        <field name="advertisement_slot"/>
+        <field name="city"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_partner_radio_form" model="ir.ui.view">
+    <field name="name">partner.radio.form</field>
+    <field name="model">partner.radio</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="station_name"/>
+            <field name="frequency"/>
+            <field name="coverage_area"/>
+            <field name="advertisement_slot"/>
+            <field name="city"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_partner_radio" model="ir.actions.act_window">
+    <field name="name">Radio Partners</field>
+    <field name="res_model">partner.radio</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_partner_radio" name="Radio Partners" parent="menu_partners_root" action="action_partner_radio" sequence="4"/>
+
+  <!-- Print Media Partner -->
+  <record id="view_partner_print_tree" model="ir.ui.view">
+    <field name="name">partner.print.tree</field>
+    <field name="model">partner.print</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="publication_name"/>
+        <field name="print_date"/>
+        <field name="circulation"/>
+        <field name="ad_space_size"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_partner_print_form" model="ir.ui.view">
+    <field name="name">partner.print.form</field>
+    <field name="model">partner.print</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+               <field name="logo" widget="image" class="oe_avatar"/>
+            <field name="publication_name"/>
+            <field name="print_date"/>
+            <field name="circulation"/>
+            <field name="ad_space_size"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_partner_print" model="ir.actions.act_window">
+    <field name="name">Print Media Partners</field>
+    <field name="res_model">partner.print</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_partner_print" name="Print Media Partners" parent="menu_partners_root" action="action_partner_print" sequence="5"/>
+
+  <!-- Distribution Partner -->
+<record id="view_partner_distribution_form" model="ir.ui.view">
+    <field name="name">partner.distribution.form</field>
+    <field name="model">partner.distribution</field>
+    <field name="arch" type="xml">
+        <form string="Distribution Partner">
+            <sheet>
+                <!-- Hidden technical fields to control visibility -->
+                <field name="is_theatre" invisible="1"/>
+                <field name="is_ott" invisible="1"/>
+                <field name="is_dvd" invisible="1"/>
+
+                <group>
+                     <field name="distribution_type"/>
+                    <field name="name"/>
+                    <field name="owner_name"/>
+                    <field name="region"/>
+
+                </group>
+
+                <!-- Theatre Fields -->
+                <group string="Theatre Details" attrs="{'invisible': [('is_theatre', '=', False)]}">
+                    <field name="theatre_name"/>
+                    <field name="theatre_location"/>
+                    <field name="theatre_screen_count"/>
+                    <field name="theatre_seating_capacity"/>
+                    <field name="theatre_contact_number"/>
+                    <field name="theatre_email"/>
+                    <field name="theatre_manager_name"/>
+                    <field name="theatre_opening_time"/>
+                    <field name="theatre_closing_time"/>
+                    <field name="theatre_has_3d_screen"/>
+                    <field name="theatre_has_imax"/>
+                </group>
+
+                <!-- OTT Fields -->
+                <group string="OTT Platform Details" attrs="{'invisible': [('is_ott', '=', False)]}">
+                    <field name="platform"/>
+                    <field name="ott_logo"/>
+                    <field name="website"/>
+                    <field name="app_available"/>
+                    <field name="contact_email"/>
+                    <field name="subscription_type"/>
+                </group>
+
+                <!-- DVD Fields -->
+                <group string="DVD Distribution Details" attrs="{'invisible': [('is_dvd', '=', False)]}">
+                    <field name="dvd_publisher_name"/>
+                    <field name="dvd_release_date"/>
+                    <field name="dvd_region_code"/>
+                    <field name="dvd_format"/>
+                    <field name="dvd_packaging_type"/>
+                    <field name="dvd_copies_distributed"/>
+                    <field name="dvd_manufacturer_contact"/>
+                    <field name="dvd_manufacturer_phone"/>
+                    <field name="dvd_manufacturer_email"/>
+                    <field name="dvd_distribution_region"/>
+                    <field name="dvd_notes"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+<!-- Tree view (optional, simple) -->
+<record id="view_partner_distribution_tree" model="ir.ui.view">
+    <field name="name">partner.distribution.tree</field>
+    <field name="model">partner.distribution</field>
+    <field name="arch" type="xml">
+        <tree string="Distribution Partners">
+            <field name="distribution_type"/>
+            <field name="name"/>
+             <field name="theatre_name"/>
+            <field name="platform"/>
+             <field name="dvd_publisher_name"/>
+        </tree>
+    </field>
+</record>
+
+<!-- Action to open distribution partners -->
+<record id="action_partner_distribution" model="ir.actions.act_window">
+    <field name="name">Distribution Partners</field>
+    <field name="res_model">partner.distribution</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<!-- Menu item -->
+<menuitem id="menu_partner_distribution" name="Distribution Partners" parent="menu_partners_root" action="action_partner_distribution" sequence="6"/>
+
+  <!-- Legal Partner -->
+  <record id="view_partner_legal_tree" model="ir.ui.view">
+    <field name="name">partner.legal.tree</field>
+    <field name="model">partner.legal</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="lawyer_name"/>
+        <field name="contact_email"/>
+        <field name="phone_number"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_partner_legal_form" model="ir.ui.view">
+    <field name="name">partner.legal.form</field>
+    <field name="model">partner.legal</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="logo" widget="image" class="oe_avatar"/>
+            <field name="lawyer_name"/>
+            <field name="contact_email"/>
+            <field name="phone_number"/>
+            <field name="services_provided"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_partner_legal" model="ir.actions.act_window">
+    <field name="name">Legal Partners</field>
+    <field name="res_model">partner.legal</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_partner_legal" name="Legal Partners" parent="menu_partners_root" action="action_partner_legal" sequence="7"/>
+
+  <!-- Merchandise Partner -->
+  <record id="view_partner_merchandise_tree" model="ir.ui.view">
+    <field name="name">partner.merchandise.tree</field>
+    <field name="model">partner.merchandise</field>
+    <field name="arch" type="xml">
+      <tree>
+        <field name="name"/>
+        <field name="brand_name"/>
+        <field name="product_categories"/>
+        <field name="contact_person"/>
+        <field name="contact_email"/>
+        <field name="phone_number"/>
+        <field name="partnership_start_date"/>
+        <field name="exclusive_merchandise"/>
+      </tree>
+    </field>
+  </record>
+
+  <record id="view_partner_merchandise_form" model="ir.ui.view">
+    <field name="name">partner.merchandise.form</field>
+    <field name="model">partner.merchandise</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <field name="name"/>
+            <field name="brand_name"/>
+            <field name="product_categories"/>
+            <field name="contact_person"/>
+            <field name="contact_email"/>
+            <field name="phone_number"/>
+            <field name="partnership_start_date"/>
+            <field name="exclusive_merchandise"/>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_partner_merchandise" model="ir.actions.act_window">
+    <field name="name">Merchandise Partners</field>
+    <field name="res_model">partner.merchandise</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+
+  <menuitem id="menu_partner_merchandise" name="Merchandise Partners" parent="menu_partners_root" action="action_partner_merchandise" sequence="8"/>
+
+    <!-- =================== Event Partner =================== -->
+    <record id="view_partner_event_tree" model="ir.ui.view">
+        <field name="name">partner.event.tree</field>
+        <field name="model">partner.event</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="event_type"/>
+                <field name="contact_person"/>
+                <field name="contact_email"/>
+                <field name="phone_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_event_form" model="ir.ui.view">
+        <field name="name">partner.event.form</field>
+        <field name="model">partner.event</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <field name="event_type"/>
+                    </group>
+                    <group>
+                        <field name="contact_person"/>
+                        <field name="contact_email"/>
+                        <field name="phone_number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_event" model="ir.actions.act_window">
+        <field name="name">Event Partners</field>
+        <field name="res_model">partner.event</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_partner_event" name="Event Partners" parent="menu_partners_root" action="action_partner_event" sequence="10"/>
+
+    <!-- =================== VFX & Post-production Partner =================== -->
+    <record id="view_partner_vfx_post_tree" model="ir.ui.view">
+        <field name="name">partner.vfx_post.tree</field>
+        <field name="model">partner.vfx_post</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="specialization"/>
+                <field name="project_count"/>
+                <field name="contact_email"/>
+                <field name="phone_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_vfx_post_form" model="ir.ui.view">
+        <field name="name">partner.vfx_post.form</field>
+        <field name="model">partner.vfx_post</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <field name="specialization"/>
+                        <field name="project_count"/>
+                    </group>
+                    <group>
+                        <field name="contact_email"/>
+                        <field name="phone_number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_vfx_post" model="ir.actions.act_window">
+        <field name="name">VFX and Post-production Partners</field>
+        <field name="res_model">partner.vfx_post</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_partner_vfx_post" name="VFX and Post-production Partners" parent="menu_partners_root" action="action_partner_vfx_post" sequence="20"/>
+
+    <!-- =================== Talent Agency Partner =================== -->
+    <record id="view_partner_talent_agency_tree" model="ir.ui.view">
+        <field name="name">partner.talent_agency.tree</field>
+        <field name="model">partner.talent_agency</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="talent_types"/>
+                <field name="contact_person"/>
+                <field name="contact_email"/>
+                <field name="phone_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_talent_agency_form" model="ir.ui.view">
+        <field name="name">partner.talent_agency.form</field>
+        <field name="model">partner.talent_agency</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <field name="talent_types"/>
+                    </group>
+                    <group>
+                        <field name="contact_person"/>
+                        <field name="contact_email"/>
+                        <field name="phone_number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_talent_agency" model="ir.actions.act_window">
+        <field name="name">Talent Agency Partners</field>
+        <field name="res_model">partner.talent_agency</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_partner_talent_agency" name="Talent Agency Partners" parent="menu_partners_root" action="action_partner_talent_agency" sequence="30"/>
+
+    <!-- =================== Cinema Chain Partner =================== -->
+    <record id="view_partner_cinema_chain_tree" model="ir.ui.view">
+        <field name="name">partner.cinema_chain.tree</field>
+        <field name="model">partner.cinema_chain</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="number_of_screens"/>
+                <field name="regions_covered"/>
+                <field name="contact_email"/>
+                <field name="phone_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_cinema_chain_form" model="ir.ui.view">
+        <field name="name">partner.cinema_chain.form</field>
+        <field name="model">partner.cinema_chain</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <field name="number_of_screens"/>
+                        <field name="regions_covered"/>
+                    </group>
+                    <group>
+                        <field name="contact_email"/>
+                        <field name="phone_number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_cinema_chain" model="ir.actions.act_window">
+        <field name="name">Cinema Chain Partners</field>
+        <field name="res_model">partner.cinema_chain</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_partner_cinema_chain" name="Cinema Chain Partners" parent="menu_partners_root" action="action_partner_cinema_chain" sequence="40"/>
+
+    <!-- =================== International Sales Partner =================== -->
+    <record id="view_partner_intl_sales_tree" model="ir.ui.view">
+        <field name="name">partner.intl_sales.tree</field>
+        <field name="model">partner.intl_sales</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="regions_covered"/>
+                <field name="contact_person"/>
+                <field name="contact_email"/>
+                <field name="phone_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_intl_sales_form" model="ir.ui.view">
+        <field name="name">partner.intl_sales.form</field>
+        <field name="model">partner.intl_sales</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <field name="regions_covered"/>
+                        <field name="contact_person"/>
+                    </group>
+                    <group>
+                        <field name="contact_email"/>
+                        <field name="phone_number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_intl_sales" model="ir.actions.act_window">
+        <field name="name">International Sales Partners</field>
+        <field name="res_model">partner.intl_sales</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_partner_intl_sales" name="International Sales Partners" parent="menu_partners_root" action="action_partner_intl_sales" sequence="50"/>
+
+    <!-- =================== Subtitling & Dubbing Partner =================== -->
+    <record id="view_partner_subtitling_dubbing_tree" model="ir.ui.view">
+        <field name="name">partner.subtitling_dubbing.tree</field>
+        <field name="model">partner.subtitling_dubbing</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="services_offered"/>
+                <field name="languages_supported"/>
+                <field name="contact_person"/>
+                <field name="contact_email"/>
+                <field name="phone_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_subtitling_dubbing_form" model="ir.ui.view">
+        <field name="name">partner.subtitling_dubbing.form</field>
+        <field name="model">partner.subtitling_dubbing</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <field name="services_offered"/>
+                        <field name="languages_supported"/>
+                    </group>
+                    <group>
+                        <field name="contact_person"/>
+                        <field name="contact_email"/>
+                        <field name="phone_number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_subtitling_dubbing" model="ir.actions.act_window">
+        <field name="name">Subtitling and Dubbing Partners</field>
+        <field name="res_model">partner.subtitling_dubbing</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_partner_subtitling_dubbing" name="Subtitling and Dubbing Partners" parent="menu_partners_root" action="action_partner_subtitling_dubbing" sequence="60"/>
+
+    <!-- =================== Food & Beverage Partner =================== -->
+    <record id="view_partner_food_beverage_tree" model="ir.ui.view">
+        <field name="name">partner.food_beverage.tree</field>
+        <field name="model">partner.food_beverage</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="product_categories"/>
+                <field name="contact_email"/>
+                <field name="phone_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_food_beverage_form" model="ir.ui.view">
+        <field name="name">partner.food_beverage.form</field>
+        <field name="model">partner.food_beverage</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <field name="product_categories"/>
+                    </group>
+                    <group>
+                        <field name="contact_email"/>
+                        <field name="phone_number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_food_beverage" model="ir.actions.act_window">
+        <field name="name">Food and Beverage Partners</field>
+        <field name="res_model">partner.food_beverage</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_partner_food_beverage" name="Food and Beverage Partners" parent="menu_partners_root" action="action_partner_food_beverage" sequence="70"/>
+
+    <!-- =================== Travel & Accommodation Partner =================== -->
+    <record id="view_partner_travel_accommodation_tree" model="ir.ui.view">
+        <field name="name">partner.travel_accommodation.tree</field>
+        <field name="model">partner.travel_accommodation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="services_offered"/>
+                <field name="contact_email"/>
+                <field name="phone_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_partner_travel_accommodation_form" model="ir.ui.view">
+        <field name="name">partner.travel_accommodation.form</field>
+        <field name="model">partner.travel_accommodation</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="logo" widget="image" class="oe_avatar"/>
+                        <field name="services_offered"/>
+                    </group>
+                    <group>
+                        <field name="contact_email"/>
+                        <field name="phone_number"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_partner_travel_accommodation" model="ir.actions.act_window">
+        <field name="name">Travel and Accommodation Partners</field>
+        <field name="res_model">partner.travel_accommodation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_partner_travel_accommodation" name="Travel and Accommodation Partners" parent="menu_partners_root" action="action_partner_travel_accommodation" sequence="80"/>
+</odoo>

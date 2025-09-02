@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!--   Durgesh Bagul & Gaurav Bonde (23/05/2025)    -->
+
+    <!-- Form View for Movie Productions -->
+    <record id="view_movie_production_form" model="ir.ui.view">
+        <field name="name">movie.production.form</field>
+        <field name="model">movie.production</field>
+        <field name="arch" type="xml">
+            <form string="Movie Production">
+
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="type"/>
+                            <field name="genre"/>
+                            <field name="language"/>
+                            <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="release_date"/>
+                            <field name="status"/>
+                            <field name="movie_type"/>
+                            <field name="is_released"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Actors">
+                            <field name="actor_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="role_ids" widget="many2many_tags"/>
+                                    <field name="act_Image" widget="image" options="{'size': [40,40]}"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Crew Members">
+                            <field name="crew_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="position_ids" widget="many2many_tags"/>
+                                    <field name="biography"/>
+                                    <field name="image" widget="image" options="{'size': [40,40]}"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Schedule">
+                            <field name="schedule_ids">
+                                <tree editable="bottom">
+                                    <field name="production_id" string="Movie Name"/>
+                                    <field name="date"/>
+                                    <field name="start_time"/>
+                                    <field name="end_time"/>
+                                    <field name="location_id"/>
+                                    <field name="scene_description"/>
+                                    <field name="actor_ids" widget="many2many_tags"/>
+                                    <field name="crew_ids" widget="many2many_tags"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Releases On">
+                            <group>
+                                <field name="theatre_ids" widget="many2many_tags"/>
+                                <field name="ott_platform_ids" widget="many2many_tags"/>
+                            </group>
+                        </page>
+                        <page string="Movie Partners">
+                            <group>
+                                <field name="distribution_partner_ids">
+                                    <tree editable="bottom">
+                                        <field name="distribution_type"/>
+                                        <field name="name"/>
+                                        <field name="theatre_name" options="{'no_create': False}"/>
+                                        <field name="platform" options="{'no_create': False}"/>
+                                        <field name="dvd_publisher_name" options="{'no_create': False}"/>
+                                    </tree>
+                                </field>
+                                <field name="music_partner_ids" widget="many2many_tags"/>
+                                <field name="tv_partner_ids" widget="many2many_tags"/>
+                                <field name="otts_partner_ids" widget="many2many_tags"/>
+                                <field name="radio_partner_ids" widget="many2many_tags"/>
+                                <field name="movie_partner_print_partner_ids" widget="many2many_tags"/>
+                                <field name="legal_partner_ids" widget="many2many_tags"/>
+                                <field name="merchandise_partner_ids" widget="many2many_tags"/>
+                                <field name="event_partner_ids" widget="many2many_tags"/>
+                                <field name="vfx_post_partner_ids" widget="many2many_tags"/>
+                                <field name="talent_agency_partner_ids" widget="many2many_tags"/>
+                                <field name="cinema_chain_partner_ids" widget="many2many_tags"/>
+                                <field name="international_traveling_partner_ids" widget="many2many_tags"/>
+                                <field name="subtitle_dubbing_partner_ids" widget="many2many_tags"/>
+                                <field name="food_beverages_partner_ids" widget="many2many_tags"/>
+                                <field name="travel_partner_ids" widget="many2many_tags"/>
+
+                            </group>
+                        </page>
+                        <page string="Manage Contracts">
+                            <field name="contract_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="contract_type"/>
+                                    <field name="production_id"/>
+                                    <field name="theatre_id"/>
+                                    <field name="ott_platform_id"/>
+                                    <field name="actor_id"/>
+                                    <field name="crew_id"/>
+                                    <field name="start_date"/>
+                                    <field name="end_date"/>
+                                    <field name="status"/>
+                                    <field name="amount_total"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Sponsors">
+                            <field name="sponsor_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="company_name"/>
+                                    <field name="sponsor_type"/>
+                                    <field name="sponsorship_amount"/>
+                                    <field name="payment_status"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Media &amp; Budget">
+                            <group>
+                                <field name="poster" widget="image"/>
+                                <field name="trailer_link"/>
+                                <field name="budget"/>
+                                <field name="box_office"/>
+                                <field name="rating"/>
+                            </group>
+                        </page>
+                        <page string="Payments">
+                            <field name="payment_line_ids" context="{'default_production_id': active_id}">
+                                <tree editable="bottom">
+                                    <field name="role"/>
+                                    <field name="actor_id" attrs="{'invisible': [('role', '!=', 'actor')]}"/>
+                                    <field name="crew_id" attrs="{'invisible': [('role', '!=', 'crew')]}"/>
+                                    <field name="total_amount"/>
+                                    <field name="advance_paid"/>
+                                    <field name="other_deductions"/>
+                                    <field name="remaining_amount" readonly="1"/>
+                                    <field name="payment_status" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- Tree View for Movie Productions -->
+    <record id="view_movie_production_tree" model="ir.ui.view">
+        <field name="name">movie.production.tree</field>
+        <field name="model">movie.production</field>
+        <field name="arch" type="xml">
+            <tree string="Movie Productions">
+                <field name="name"/>
+                <field name="type"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="release_date"/>
+                <field name="status"/>
+                <field name="is_released"/>
+            </tree>
+        </field>
+    </record>
+
+
+    <!-- Action for Movie Productions -->
+    <record id="action_movie_production" model="ir.actions.act_window">
+        <field name="name">Movie Productions</field>
+        <field name="res_model">movie.production</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Menu for Productions -->
+    <menuitem id="menu_production" name="Productions" parent="movie_root_menu" sequence="1"
+              action="action_movie_production"/>
+
+    <!-- Submenu for Productions -->
+    <menuitem id="menu_movie_production" name="Movie Productions" parent="menu_production" sequence="1"
+              action="action_movie_production"/>
+</odoo>

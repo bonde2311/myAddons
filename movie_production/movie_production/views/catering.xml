@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Created by Durgesh Bagul & Gaurav Bonde (21/05/2025) -->
+
+    <!-- =================== Sequences =================== -->
+
+    <record id="seq_catering_quotation" model="ir.sequence">
+        <field name="name">Catering Quotation</field>
+        <field name="code">movie.catering.quotation</field>
+        <field name="prefix">C-Quot-</field>
+        <field name="padding">4</field>
+    </record>
+
+    <record id="seq_catering_order" model="ir.sequence">
+        <field name="name">Catering Order</field>
+        <field name="code">movie.catering.order</field>
+        <field name="prefix">C-Order-</field>
+        <field name="padding">4</field>
+    </record>
+
+    <!-- =================== Views =================== -->
+
+    <!-- Catering Quotation Form View -->
+    <record id="view_form_catering_quotation" model="ir.ui.view">
+        <field name="name">movie.catering.quotation.form</field>
+        <field name="model">movie.catering.quotation</field>
+        <field name="arch" type="xml">
+            <form string="Catering Quotation">
+                <header>
+                    <button name="action_send" type="object"    class="btn btn-primary" string="Send" states="draft"/>
+                    <button name="action_accept" type="object"   cclass="btn btn-success" string="Accept" states="sent"/>
+                    <button name="action_reject" type="object"   class="btn-danger" string="Reject" states="sent"/>
+                    <button name="action_generate_order" type="object"  class="btn btn-info"  string="Generate Order" states="accepted"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,accepted,rejected"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="vendor_id"/>
+                        <field name="production_id"/>
+                        <field name="quotation_date"/>
+                    </group>
+                    <notebook>
+                        <page string="Lines">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="unit_price"/>
+                                    <field name="subtotal" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Catering Order Form View -->
+    <record id="view_form_catering_order" model="ir.ui.view">
+        <field name="name">movie.catering.order.form</field>
+        <field name="model">movie.catering.order</field>
+        <field name="arch" type="xml">
+            <form string="Catering Order">
+                <header>
+                    <button name="action_request_approval" type="object"    class="btn btn-primary" string="Request Approval" states="draft"/>
+                    <button name="action_approve" type="object" string="Approve" class="btn btn-warning" states="waiting_approval"/>
+                    <button name="action_confirm_order" type="object"    class="btn btn-success" string="Confirm Order" states="approved"/>
+                    <button name="action_create_invoice" type="object"  class="btn btn-secondary" string="Create Invoice" states="ordered"/>
+                    <field name="state" widget="statusbar"    statusbar_visible="draft,waiting_approval,approved,ordered,invoiced"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name" readonly="1"/>
+                        <field name="vendor_id"/>
+                        <field name="production_id"/>
+                        <field name="order_date"/>
+                        <field name="amount_total" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Lines">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="product_id"/>
+                                    <field name="quantity"/>
+                                    <field name="unit_price"/>
+                                    <field name="subtotal" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Catering Quotation Tree View -->
+    <record id="view_tree_catering_quotation" model="ir.ui.view">
+        <field name="name">movie.catering.quotation.tree</field>
+        <field name="model">movie.catering.quotation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="vendor_id"/>
+                <field name="quotation_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Catering Order Tree View -->
+    <record id="view_tree_catering_order" model="ir.ui.view">
+        <field name="name">movie.catering.order.tree</field>
+        <field name="model">movie.catering.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="vendor_id"/>
+                <field name="order_date"/>
+                <field name="state"/>
+                <field name="amount_total"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- =================== Actions =================== -->
+
+    <record id="action_catering_quotation" model="ir.actions.act_window">
+        <field name="name">Catering Quotations</field>
+        <field name="res_model">movie.catering.quotation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_catering_order" model="ir.actions.act_window">
+        <field name="name">Catering Orders</field>
+        <field name="res_model">movie.catering.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- =================== Menus =================== -->
+
+  <!-- Menu for Catering Quotation  -->
+    <menuitem id="menu_catering_quotation" name="Quotations" parent="menu_catering" action="action_catering_quotation"/>
+
+   <!-- Menu for Catering Orders  -->
+    <menuitem id="menu_catering_order" name="Orders" parent="menu_catering" action="action_catering_order"/>
+
+</odoo>
+

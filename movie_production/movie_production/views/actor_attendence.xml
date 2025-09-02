@@ -1,0 +1,64 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<odoo>-->
+
+<!--    &lt;!&ndash;   Durgesh Bagul & Gaurav Bonde (19/05/2025)    &ndash;&gt;-->
+<!--&lt;!&ndash;-  Form view for Actor Attendance    &ndash;&gt;-->
+<!--    <record id="view_actor_attendance_form" model="ir.ui.view">-->
+<!--        <field name="name">actor.attendance.form</field>-->
+<!--        <field name="model">actor.attendance</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Actor Attendance">-->
+<!--                <header>-->
+<!--                    <field name="state" widget="statusbar" statusbar_visible="draft,checked_in,checked_out"/>-->
+
+<!--                    &lt;!&ndash; Primary Button &ndash;&gt;-->
+<!--                    <button name="action_check_in" type="object" string="Check In"-->
+<!--                            class="oe_highlight"-->
+<!--                            attrs="{'invisible': [('state', '!=', 'draft')]}"/>-->
+
+<!--                    &lt;!&ndash; Secondary Button (custom gray background) &ndash;&gt;-->
+<!--                    <button name="action_check_out" type="object" string="Check Out"-->
+<!--                          class="oe_highlight"-->
+<!--                            attrs="{'invisible': [('state', '!=', 'checked_in')]}"/>-->
+<!--                </header>-->
+<!--                <sheet>-->
+<!--                    <group>-->
+<!--                        <field name="actor_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>-->
+<!--                        <field name="check_in" readonly="1"/>-->
+<!--                        <field name="check_out" readonly="1"/>-->
+<!--                        <field name="duration" readonly="1"/>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+
+<!--    &lt;!&ndash;   Tree view for Actor Attendance    &ndash;&gt;-->
+<!--    <record id="view_actor_attendance_tree" model="ir.ui.view">-->
+<!--        <field name="name">actor.attendance.tree</field>-->
+<!--        <field name="model">actor.attendance</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree>-->
+<!--                <field name="actor_id"/>-->
+<!--                <field name="check_in"/>-->
+<!--                <field name="check_out"/>-->
+<!--                <field name="duration"/>-->
+<!--                <field name="state"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--        &lt;!&ndash;   Action for Actor Attendance    &ndash;&gt;-->
+<!--    <record id="action_actor_attendance" model="ir.actions.act_window">-->
+<!--        <field name="name">Actor Attendance</field>-->
+<!--        <field name="res_model">actor.attendance</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--    </record>-->
+
+<!--        &lt;!&ndash;   Menu for Actor Attendance    &ndash;&gt;-->
+<!--    <menuitem id="menu_actor_attendance" name="Attendance"-->
+<!--              parent="menu_movie_management"-->
+<!--             sequence="5"-->
+<!--              action="action_actor_attendance"/>-->
+<!--</odoo>-->

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<!--  Durgesh Bagul & Gaurav Bonde (23/05/2025)  -->
+
+    <!-- Form View for Contracts -->
+    <record id="view_form_movie_contract" model="ir.ui.view">
+        <field name="name">movie.contract.form</field>
+        <field name="model">movie.contract</field>
+        <field name="arch" type="xml">
+            <form string="Contract">
+                <sheet>
+                    <h1>
+                        <field name="name" readonly="1"/>
+                    </h1>
+                    <group>
+                        <field name="contract_type" required="1"/>
+                        <field name="production_id" required="1"/>
+                         <field name="theatre_id" attrs="{'invisible': [('contract_type', '!=', 'theatre')]}"/>
+                    <field name="ott_platform_id" attrs="{'invisible': [('contract_type', '!=', 'ott')]}"/>
+                    <field name="actor_id" attrs="{'invisible': [('contract_type', '!=', 'actor')]}"/>
+                    <field name="crew_id" attrs="{'invisible': [('contract_type', '!=', 'crew')]}"/>
+
+                        <field name="partner_id" required="1"/>
+                        <field name="contract_date"/>
+                        <field name="start_date" required="1"/>
+                        <field name="end_date" required="1"/>
+                        <field name="amount_total"/>
+                        <field name="status" readonly="1"/>
+                          <field name="status_message" readonly="1"/>
+                        <field name="signed_by" readonly="1"/>
+                        <field name="is_renewable"/>
+                    </group>
+                    <group string="Documents">
+                        <field name="contract_file" filename="contract_file_name"/>
+                        <field name="contract_file_name" readonly="1"/>
+                    </group>
+                    <notebook>
+                        <page string="Terms Payment">
+                            <field name="contract_terms"/>
+                            <field name="payment_terms"/>
+                        </page>
+                        <page string="Internal Notes">
+                            <field name="notes"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View  Contracts-->
+    <record id="view_tree_movie_contract" model="ir.ui.view">
+        <field name="name">movie.contract.tree</field>
+        <field name="model">movie.contract</field>
+        <field name="arch" type="xml">
+            <tree string="Contracts">
+                <field name="name"/>
+                <field name="contract_type"/>
+                <field name="production_id"/>
+                <field name="theatre_id"/>
+                <field name="ott_platform_id"/>
+                <field name="actor_id"/>
+                <field name="crew_id"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="status"/>
+                   <field name="status_message"/>
+                <field name="amount_total"/>
+            </tree>
+        </field>
+    </record>
+
+     <!-- Action: All Contracts -->
+    <record id="action_movie_contract" model="ir.actions.act_window">
+        <field name="name">Movie Contracts</field>
+        <field name="res_model">movie.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Action: Contracts filtered by production -->
+    <record id="action_movie_contracts_for_production" model="ir.actions.act_window">
+        <field name="name">Contracts for Production</field>
+        <field name="res_model">movie.contract</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('production_id', '=', active_id)]</field>
+    </record>
+
+    <!-- Menu Items  for  Contracts and Agreements-->
+    <menuitem id="menu_contracts_agreements" name="Contracts and Agreements" sequence="10" parent="movie_root_menu"/>
+
+    <menuitem id="menu_movie_contract_parent" name="Contracts" parent="menu_contracts_agreements" sequence="20"/>
+    <menuitem id="menu_movie_contracts" name="Manage Contracts" parent="menu_contracts_agreements"
+              action="action_movie_contract" sequence="10"/>
+</odoo>

@@ -1,0 +1,127 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_movie_marketing_tree" model="ir.ui.view">
+        <field name="name">movie.marketing.tree</field>
+        <field name="model">movie.marketing</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="movie_id"/>
+                <field name="marketing_type"/>
+                <field name="date"/>
+                <field name="budget"/>
+                <field name="actual_cost"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_movie_marketing_form" model="ir.ui.view">
+        <field name="name">movie.marketing.form</field>
+        <field name="model">movie.marketing</field>
+        <field name="arch" type="xml">
+            <form string="Marketing Activity">
+                <sheet>
+                    <group>
+                        <field name="movie_id"/>
+                        <field name="name"/>
+                        <field name="marketing_type"/>
+                        <field name="date"/>
+                        <field name="budget"/>
+                        <field name="actual_cost"/>
+                        <field name="status"/>
+                        <field name="responsible_user"/>
+                        <field name="description"/>
+                    </group>
+
+                    <!-- SOCIAL MEDIA -->
+                    <group string="Social Media" attrs="{'invisible': [('marketing_type', '!=', 'social_media')]}">
+                        <field name="social_platform"/>
+                        <field name="post_link"/>
+                        <field name="post_content"/>
+                        <field name="media_type"/>
+                         <field name="post_image" filename="post_image"/>
+                         <field name="scheduled_date"/>
+                        <field name="post_date"/>
+
+                    </group>
+
+                    <!-- INFLUENCER -->
+                    <group string="Influencer" attrs="{'invisible': [('marketing_type', '!=', 'influencer')]}">
+                        <field name="influencer_name"/>
+                        <field name="influencer_handle"/>
+                        <field name="followers"/>
+                        <field name="influencer_platform"/>
+                    </group>
+
+                    <!-- EVENT -->
+                    <group string="Event" attrs="{'invisible': [('marketing_type', '!=', 'event')]}">
+                        <field name="event_name"/>
+                        <field name="event_date"/>
+                        <field name="venue"/>
+                        <field name="city"/>
+                        <field name="attendees"/>
+                    </group>
+
+                    <!-- PR -->
+                    <group string="PR / News" attrs="{'invisible': [('marketing_type', '!=', 'pr')]}">
+                        <field name="media_outlet"/>
+                        <field name="coverage_type"/>
+                        <field name="published_link"/>
+                    </group>
+
+                    <!-- EMAIL -->
+                    <group string="Email / WhatsApp" attrs="{'invisible': [('marketing_type', '!=', 'email')]}">
+                        <field name="campaign_name"/>
+                        <field name="recipients"/>
+                        <field name="open_rate"/>
+                        <field name="click_rate"/>
+                    </group>
+
+                    <!-- SEO / SEM -->
+                    <group string="SEO / SEM" attrs="{'invisible': [('marketing_type', '!=', 'seo')]}">
+                        <field name="keywords_targeted"/>
+                        <field name="seo_platform"/>
+                        <field name="impressions"/>
+                        <field name="clicks"/>
+                    </group>
+
+                    <!-- PARTNERSHIP -->
+                    <group string="Partnership" attrs="{'invisible': [('marketing_type', '!=', 'partnership')]}">
+                        <field name="partner_brand"/>
+                        <field name="collaboration_type"/>
+                        <field name="benefits"/>
+                    </group>
+
+                    <!-- VIDEO -->
+                    <group string="Video / Trailer" attrs="{'invisible': [('marketing_type', '!=', 'video')]}">
+                        <field name="video_title"/>
+                        <field name="video_platform"/>
+                        <field name="views"/>
+                        <field name="shares"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_movie_marketing" model="ir.actions.act_window">
+        <field name="name">Marketing Activities</field>
+        <field name="res_model">movie.marketing</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add your movie's marketing campaigns here.
+            </p>
+        </field>
+    </record>
+
+    <!-- Main Marketing Menu -->
+    <menuitem id="menu_movie_marketing_campaigns"
+              name="Marketing Campaigns"
+              parent="menu_movie_marketing_root"
+              action="action_movie_marketing"
+              sequence="10"/>
+</odoo>

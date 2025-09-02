@@ -1,0 +1,45 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="view_document_type_tree" model="ir.ui.view">
+        <field name="name">document.type.tree</field>
+        <field name="model">document.type</field>
+        <field name="arch" type="xml">
+            <tree string="Document Types">
+                <field name="name"/>
+<!--                <field name="code"/>-->
+                 <field name="company_ids" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_document_type_form" model="ir.ui.view">
+        <field name="name">document.type.form</field>
+        <field name="model">document.type</field>
+        <field name="arch" type="xml">
+            <form string="Document Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+<!--                        <field name="code"/>-->
+                        <field name="company_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_document_type" model="ir.actions.act_window">
+        <field name="name">Document Types</field>
+        <field name="res_model">document.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu (under root or company master) -->
+    <menuitem id="menu_document_type_root"
+              name="Document Types"
+              parent="menu_company_master_root"
+              action="action_document_type"
+              groups="legel_document_initiations.group_legel_admin"/>
+</odoo>

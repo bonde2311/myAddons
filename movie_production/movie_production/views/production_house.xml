@@ -1,0 +1,79 @@
+<odoo>
+     <!--   Durgesh Bagul & Gaurav Bonde (23/05/2025)  -->
+
+    <!-- Form View: Production House -->
+    <record id="view_form_movie_production_house" model="ir.ui.view">
+        <field name="name">movie.production.house.form</field>
+        <field name="model">movie.production.house</field>
+        <field name="arch" type="xml">
+            <form string="Production House">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="owner_name"/>
+                            <field name="email"/>
+                            <field name="contact"/>
+                            <field name="website"/>
+                            <field name="established_date"/>
+                            <field name="is_active"/>
+                        </group>
+                        <group>
+                            <field name="address"/>
+                            <field name="city"/>
+                            <field name="state"/>
+                            <field name="country"/>
+                            <field name="logo" widget="image" class="oe_avatar"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="biography"/>
+                    </group>
+                    <notebook>
+                        <page string="Produced Movies">
+                            <field name="production_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="release_date"/>
+                                    <field name="type"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View: Production House -->
+    <record id="view_tree_movie_production_house" model="ir.ui.view">
+        <field name="name">movie.production.house.tree</field>
+        <field name="model">movie.production.house</field>
+        <field name="arch" type="xml">
+            <tree string="Production Houses">
+                <field name="name"/>
+                <field name="owner_name"/>
+                <field name="city"/>
+                <field name="state"/>
+                <field name="email"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action: Production House -->
+    <record id="action_movie_production_house" model="ir.actions.act_window">
+        <field name="name">Production Houses</field>
+        <field name="res_model">movie.production.house</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Submenu: Production Houses -->
+    <menuitem id="menu_movie_production_house"
+              name="Production House"
+              parent="menu_production"
+              action="action_movie_production_house"
+              sequence="5"/>
+
+</odoo>

@@ -1,0 +1,75 @@
+<odoo>
+    <!-- Form View -->
+    <record id="view_form_movie_attendance" model="ir.ui.view">
+        <field name="name">movie.attendance.form</field>
+        <field name="model">movie.attendance</field>
+        <field name="arch" type="xml">
+           <form string="Movie Attendance">
+    <header>
+        <button string="Check In" type="object" name="action_check_in"
+                class="btn-primary"
+                attrs="{'invisible': [('state', '!=', 'draft')]}"/>
+        <button string="Check Out" type="object" name="action_check_out"
+                class="btn-danger"
+                attrs="{'invisible': [('state', '!=', 'checked_in')]}"/>
+
+        <field name="state" widget="statusbar" statusbar_visible="draft,checked_in,checked_out"/>
+    </header>
+    <sheet>
+        <group>
+            <field name="participant_type" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+
+            <field name="actor_id"
+                   attrs="{'invisible': [('participant_type', '!=', 'actor')],
+                           'required': [('participant_type', '=', 'actor'), ('state', '=', 'draft')],
+                           'readonly': [('state', '!=', 'draft')]}" />
+
+            <field name="crew_id"
+                   attrs="{'invisible': [('participant_type', '!=', 'crew')],
+                           'required': [('participant_type', '=', 'crew'), ('state', '=', 'draft')],
+                           'readonly': [('state', '!=', 'draft')]}" />
+
+            <field name="check_in" readonly="1"/>
+            <field name="check_out" readonly="1"/>
+            <field name="duration" readonly="1"/>
+        </group>
+    </sheet>
+</form>
+
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_tree_movie_attendance" model="ir.ui.view">
+        <field name="name">movie.attendance.tree</field>
+        <field name="model">movie.attendance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="participant_type"/>
+                <field name="check_in"/>
+                <field name="check_out"/>
+                <field name="duration"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_movie_attendance" model="ir.actions.act_window">
+        <field name="name">Movie Attendance</field>
+        <field name="res_model">movie.attendance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>Track attendance for actors and crew members with check-in/check-out time and auto-calculated duration.</p>
+        </field>
+    </record>
+
+
+    <menuitem id="menu_movie_attendance"
+              name="Attendance"
+              parent="menu_movie_management"
+              action="action_movie_attendance"
+              sequence="50"/>
+
+</odoo>

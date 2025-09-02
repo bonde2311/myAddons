@@ -1,0 +1,8 @@
+<odoo>
+    <record id="action_movie_contracts_for_production" model="ir.actions.act_window">
+        <field name="name">Movie Contracts</field>
+        <field name="res_model">movie.contract</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('production_id', '=', active_id)]</field>
+    </record>
+</odoo>

@@ -1,0 +1,52 @@
+<odoo>
+    <!--   Durgesh Bagul & Gaurav Bonde (26/05/2025)  -->
+
+    <!-- Form View Movie Schedule -->
+    <record id="view_movie_schedule_form" model="ir.ui.view">
+        <field name="name">movie.schedule.form</field>
+        <field name="model">movie.schedule</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="production_id" string ="Movie Name"/>
+                        <field name="date"/>
+                        <field name="start_time"/>
+                        <field name="end_time"/>
+                        <field name="location_id"/>
+                        <field name="scene_description"/>
+                        <field name="actor_ids" widget="many2many_tags"/>
+                        <field name="crew_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View Movie Schedule -->
+    <record id="view_movie_schedule_tree" model="ir.ui.view">
+        <field name="name">movie.schedule.tree</field>
+        <field name="model">movie.schedule</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="production_id"/>
+                <field name="date"/>
+                <field name="start_time"/>
+                <field name="end_time"/>
+                <field name="location_id"/>
+            </tree>
+        </field>
+    </record>
+
+ <!-- Action for Movie Schedule -->
+    <record id="action_movie_schedule" model="ir.actions.act_window">
+        <field name="name">Shoot Schedules</field>
+        <field name="res_model">movie.schedule</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Menu Item -->
+    <menuitem id="menu_movie_schedule" name="Schedules" parent="menu_movie_management" action="action_movie_schedule" sequence="30"/>
+
+</odoo>

@@ -1,0 +1,60 @@
+<odoo>
+<!--   Durgesh Bagul & Gaurav Bonde (26/05/2025)  -->
+
+  <!-- Form View for Theatre -->
+    <record id="view_movie_theatre_form" model="ir.ui.view">
+        <field name="name">movie.theatre.form</field>
+        <field name="model">movie.theatre</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Theatre Details" colspan="2">
+                        <field name="name"/>
+                        <field name="location"/>
+                        <field name="screen_count"/>
+                        <field name="seating_capacity"/>
+                        <field name="has_3d_screen"/>
+                        <field name="has_imax"/>
+                        <field name="contact_number"/>
+                        <field name="email"/>
+                        <field name="manager_name"/>
+                        <field name="opening_time" widget="timepicker"/>
+                        <field name="closing_time" widget="timepicker"/>
+                        <field name="active"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for Theatre -->
+    <record id="view_movie_theatre_tree" model="ir.ui.view">
+        <field name="name">movie.theatre.tree</field>
+        <field name="model">movie.theatre</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="location"/>
+                <field name="screen_count"/>
+                <field name="seating_capacity"/>
+                <field name="has_3d_screen"/>
+                <field name="has_imax"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+
+<!-- Action for Theatre -->
+    <record id="action_movie_theatre" model="ir.actions.act_window">
+        <field name="name">Theatres</field>
+        <field name="res_model">movie.theatre</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Menu Item Theatres -->
+    <menuitem id="menu_movie_theatre" name="Theatres" parent="menu_realise_rights" action="action_movie_theatre"
+              sequence="1"/>
+
+</odoo>

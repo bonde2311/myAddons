@@ -1,0 +1,14 @@
+<odoo>
+    <data noupdate="0">
+
+        <record id="group_legel_admin" model="res.groups">
+            <field name="name">Legal Admin</field>
+        </record>
+
+        <record id="group_legel_user" model="res.groups">
+            <field name="name">Legal User</field>
+        </record>
+
+
+    </data>
+</odoo>

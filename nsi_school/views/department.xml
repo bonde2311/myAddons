@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form View -->
+    <record id="view_department_form" model="ir.ui.view">
+        <field name="name">department.form</field>
+        <field name="model">school.department</field>
+        <field name="arch" type="xml">
+            <form string="Department">
+                <sheet>
+                    <group>
+                        <field name="dep_Code" required="1"/>
+                        <field name="dep_name" required="1"/>
+                        <field name="description"/>
+                    </group>
+
+                    <!-- One2many or Many2many field inside a page (corrected) -->
+                    <notebook>
+                        <page string="Classes">
+                            <field name="rel_class_id">
+                                <tree create="0" delete="0">
+                                    <field name="code"/>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Teachers">
+                            <field name="rel_teacher_id">
+                                <tree create="0" delete="0">
+                                    <field name="teacher_id"/>
+                                    <field name="teacher_name"/>
+                                    <field name="mobile_no"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_department_tree" model="ir.ui.view">
+        <field name="name">department.tree</field>
+        <field name="model">school.department</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="dep_Code"/>
+                <field name="dep_name"/>
+                <field name="description"/>
+                <field name="rel_class_id"/>
+                <field name="rel_teacher_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_school_department" model="ir.actions.act_window">
+        <field name="name">Department</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.department</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Create and manage departments here.
+                <br/>
+                <h1>By Durgesh Bagul | Gaurav Bonde</h1>
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu item -->
+    <menuitem id="menu_department"
+              name="Department"
+              parent="menu_school_master"
+              action="action_school_department"
+              sequence="3"/>
+
+</odoo>

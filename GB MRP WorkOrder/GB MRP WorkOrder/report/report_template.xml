@@ -1,0 +1,62 @@
+<odoo>
+  <template id="report_work_order_document">
+    <t t-call="web.basic_layout">
+      <div class="page">
+        <h2 style="text-align:center;">Work Order Report</h2>
+        <t t-foreach="docs" t-as="doc">
+          <table class="table table-sm" style="width:100%; margin-bottom:30px;" border="1" cellpadding="5">
+            <tr>
+              <th>Work Order</th>
+              <td><t t-esc="doc.name"/></td>
+            </tr>
+            <tr>
+              <th>Workcenter</th>
+              <td><t t-esc="doc.workcenter_id.name"/></td>
+            </tr>
+            <tr>
+              <th>Employee</th>
+              <td><t t-esc="doc.employee_id.name"/></td>
+            </tr>
+            <tr>
+              <th>Planned Date</th>
+              <td><t t-esc="doc.planned_date"/></td>
+            </tr>
+            <tr>
+              <th>Production Order</th>
+              <td><t t-esc="doc.production_id.name"/></td>
+            </tr>
+            <tr>
+              <th>Product</th>
+              <td><t t-esc="doc.product_id.display_name"/></td>
+            </tr>
+            <tr>
+              <th>Remaining Quantity</th>
+              <td><t t-esc="doc.qty_remaining"/></td>
+            </tr>
+            <tr>
+              <th>Produced Quantity</th>
+              <td><t t-esc="doc.qty_produced"/></td>
+            </tr>
+            <tr>
+              <th>Planned Start</th>
+              <td><t t-esc="doc.date_planned_start"/></td>
+            </tr>
+            <tr>
+              <th>Expected Duration</th>
+              <td><t t-esc="doc.duration_expected"/></td>
+            </tr>
+            <tr>
+              <th>Actual Duration</th>
+              <td><t t-esc="doc.duration"/></td>
+            </tr>
+            <tr>
+              <th>Status</th>
+              <td><t t-esc="doc.state"/></td>
+            </tr>
+          </table>
+          <hr style="margin: 20px 0;"/>
+        </t>
+      </div>
+    </t>
+  </template>
+</odoo>

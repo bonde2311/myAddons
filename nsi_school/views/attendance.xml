@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action -->
+    <record id="action_school_attendance" model="ir.actions.act_window">
+        <field name="name">Attendance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.attendance</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p>
+                Create and manage departments here.
+                <br/>
+                <h1>By Durgesh Bagul | Gaurav Bonde</h1>
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_attendance"
+              name="Attendance"
+              parent="menu_school_attendance"
+              action="action_school_attendance"
+              sequence="10"/>
+
+    <!-- Form View -->
+    <record id="view_attendance_form" model="ir.ui.view">
+        <field name="name">attendance.form</field>
+        <field name="model">school.attendance</field>
+        <field name="arch" type="xml">
+            <form string="Attendance">
+                <sheet>
+                    <group>
+                        <field name="date"/>
+                        <field name="rel_teacher_id" options="{'no_create': True}"/>
+                        <field name="rel_student_id" options="{'no_create': True}"/>
+                        <field name="student_name" readonly="1" force_save="1"/>
+                        <field name="student_department" readonly="1" force_save="1"/>
+                        <field name="student_admission_id" readonly="1" force_save="1"/>
+                        <field name="student_class" readonly="1" force_save="1"/>
+                        <field name="student_division" readonly="1" force_save="1"/>
+                        <field name="status" required='1'/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_attendance_tree" model="ir.ui.view">
+        <field name="name">attendance.tree</field>
+        <field name="model">school.attendance</field>
+        <field name="arch" type="xml">
+            <tree string="Attendance">
+                <field name="date"/>
+                <field name="rel_student_id"/>
+                <field name="student_name"/>
+                <field name="student_department"/>
+                <field name="student_class"/>
+                <field name="student_division"/>
+                <field name="status" widget="badge"
+                       decoration-success="status == 'present'"
+                       decoration-danger="status == 'absent'"
+                       decoration-info="status == 'late'"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>

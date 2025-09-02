@@ -1,0 +1,132 @@
+<odoo>
+<!--   Durgesh Bagul & Gaurav Bonde (19/05/2025)    -->
+        <!--   Form View for Actor Portfolio    -->
+    <record id="view_actor_portfolio_form" model="ir.ui.view">
+        <field name="name">actor.portfolio.form</field>
+        <field name="model">actor.portfolio</field>
+        <field name="arch" type="xml">
+            <form string="Actor Portfolio" class="oe_form_custom">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="actor_id"/>
+                            <field name="video_link"/>
+                            <field name="external_profile_url"/>
+                        </group>
+                        <group>
+                            <field name="skills"/>
+                            <field name="languages"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="About">
+                            <group>
+                                <field name="description" nolabel="1"/>
+                            </group>
+                        </page>
+
+                        <page string="Achievements">
+                            <field name="achievements" nolabel="1"/>
+                        </page>
+
+                        <page string="Images">
+                            <field name="image_ids">
+                                <tree editable="bottom">
+                                    <field name="image"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                     <div class="oe_chatter">
+                </div>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+    <!--   Tree View for Actor Portfolio    -->
+    <record id="view_actor_portfolio_tree" model="ir.ui.view">
+        <field name="name">actor.portfolio.tree</field>
+        <field name="model">actor.portfolio</field>
+        <field name="arch" type="xml">
+            <tree string="Actor Portfolios">
+                <field name="name"/>
+                <field name="actor_id"/>
+                <field name="skills"/>
+                <field name="languages"/>
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="action_actor_portfolio" model="ir.actions.act_window">
+        <field name="name">Actor Portfolios</field>
+        <field name="res_model">actor.portfolio</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the first Actor Portfolio
+            </p>
+        </field>
+    </record>
+
+
+    <!-- Form View for Actor Portfolio Image  -->
+    <record id="view_portfolio_image_form" model="ir.ui.view">
+        <field name="name">portfolio.image.form</field>
+        <field name="model">portfolio.image</field>
+        <field name="arch" type="xml">
+            <form string="Portfolio Image">
+                <sheet>
+                    <group>
+                        <field name="portfolio_id"/>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+       <!-- Tree View for  Actor Portfolio Image  -->
+    <record id="view_portfolio_image_tree" model="ir.ui.view">
+        <field name="name">portfolio.image.tree</field>
+        <field name="model">portfolio.image</field>
+        <field name="arch" type="xml">
+            <tree string="Portfolio Images">
+                <field name="image"/>
+                <field name="description"/>
+                <field name="portfolio_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Actor Portfolio Images -->
+    <record id="action_portfolio_images" model="ir.actions.act_window">
+        <field name="name">Portfolio Images</field>
+        <field name="res_model">portfolio.image</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Portfolio Image
+            </p>
+        </field>
+    </record>
+
+<!--    &lt;!&ndash; Menu for Portfolio Image &ndash;&gt;-->
+<!--    <menuitem id="menu_portfolio_image"-->
+<!--              name="Portfolio Images"-->
+<!--              parent="menu_movie_management"-->
+<!--              action="action_portfolio_images"/>-->
+
+
+    <!-- Menu for Actors Portfolios  -->
+    <menuitem id="menu_actor_portfolio" name="Actor Portfolios" parent="menu_actor_management"
+              action="action_actor_portfolio"/>
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+    <!-- Root menu -->
+    <menuitem id="movie_root_menu" name="Movie Production" sequence="1"/>
+    <menuitem id="menu_movie_marketing_root" name="Movie Marketing" sequence="2"/>
+    <menuitem id="menu_finance_root" name="Movie Finance" sequence="3"/>
+
+    <!-- Menu For Realise And Rights -->
+    <menuitem id="menu_realise_rights" name="Release and Rights" sequence="13" parent="movie_root_menu"/>
+
+    <menuitem id="menu_movie_management" name="Movie Management" sequence="10" parent="movie_root_menu"/>
+    <menuitem id="menu_actor_management" name="Actor Management" parent="movie_root_menu" sequence="9"/>
+
+    <menuitem id="menu_catering" name="Catering" parent="menu_finance_root"/>
+
+</odoo>

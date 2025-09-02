@@ -1,0 +1,64 @@
+<odoo>
+    <template id="report_teacher">
+        <t t-call="web.html_container">
+            <div class="header"
+                 style="padding:0; margin:0;">
+                <img src="/nsi_school/static/src/img/header.jpg"
+                     style="width:100%; margin:10px 0;"/>
+            </div>
+            <t t-call="web.external_layout">
+                <t t-foreach="docs"
+                   t-as="o">
+                    <div class="page"
+                         style="width:100vw; height:100vh position:relative;">
+                        <div style="text-align:center;">
+                            <p style="padding:3px 5px; border-radius:3px; font-size:10px; font-weight:bold;
+                        background-color:#F5F5F5; color:#3E2A6B; margin:3px 0;">
+                                IDENTITY CARD 2024-2025
+                            </p>
+                        </div>
+                        <!-- Profile Picture -->
+                        <div style="text-align:center; width:100%;margin:10px 0;">
+                            <img t-if="o.teacher_pic"
+                                 t-att-src="'data:image/png;base64,' + o.teacher_pic.decode('utf-8')"
+                                 style="border-radius:10px 0;"
+                                 height="110px"
+                                 width='90px'/>
+                        </div>
+                        <!-- Student Details -->
+                        <div style="width:100%; font-size:10px; padding:5px 10px; background-color:#F5F5F5;text-align:center;">
+                            <span style="color:#3E2A6B;">Name :</span>
+                            <span t-field="o.teacher_name"
+                                  style="color:#4646ba; "/>
+                            <br/>
+                            <span style="color:#3E2A6B;">Teacher ID :</span>
+                            <span t-field="o.teacher_id"
+                                  style="color:#4646ba; "/>
+                            <br/>
+                            <span style="color:#3E2A6B;">Department :</span>
+                            <span t-field="o.rel_department_id.dep_name"
+                                  style="color:#4646ba; "/>
+                            <br/>
+                            <span style="color:#3E2A6B;">Email :</span>
+                            <span t-field="o.email"
+                                  style="color:#4646ba; "/>
+                            <br/>
+                            <span style="color:#3E2A6B;">Mobile :</span>
+                            <span t-field="o.mobile_no"
+                                  style="color:#4646ba; "/>
+                            <br/>
+                        </div>
+                        <div style="width:100%; text-align:center; margin:5px 0;">
+                            <img src="/nsi_school/static/src/img/kkw2.png"
+                                 style="height:60px;"/>
+                        </div>
+                        <div style="width:100%; text-align:center; margin:10px 0 0 0;">
+                            <img src="/nsi_school/static/src/img/barcode.png"
+                                 style="width:160px; height:35px;"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

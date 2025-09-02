@@ -1,0 +1,56 @@
+<odoo>
+    <!-- Company Form View -->
+    <record id="view_company_master_form" model="ir.ui.view">
+        <field name="name">company.master.form</field>
+        <field name="model">company.master</field>
+        <field name="arch" type="xml">
+            <form string="Company">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="address"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="website"/>
+                        <field name="user_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Company Tree View -->
+    <record id="view_company_master_tree" model="ir.ui.view">
+        <field name="name">company.master.tree</field>
+        <field name="model">company.master</field>
+        <field name="arch" type="xml">
+            <tree string="Companies">
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Root menu for Companies (visible only to Admin group) -->
+    <menuitem id="menu_company_master_root"
+              name="Company"
+              parent="legel_document_initiations_menu_root"
+              groups="legel_document_initiations.group_legel_admin"/>
+
+    <!-- Action -->
+    <record id="action_company_master" model="ir.actions.act_window">
+        <field name="name">Companies</field>
+        <field name="res_model">company.master</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- Submenu for Company list (visible only to Admin group) -->
+    <menuitem id="menu_company_master"
+              name="Companies"
+              parent="menu_company_master_root"
+              action="action_company_master"
+              groups="legel_document_initiations.group_legel_admin"/>
+
+</odoo>

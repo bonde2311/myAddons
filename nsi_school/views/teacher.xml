@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Kanban View -->
+    <record id="view_kanban_school_teacher"
+            model="ir.ui.view">
+        <field name="name">school.teacher.kanban</field>
+        <field name="model">school.teacher</field>
+        <field name="arch"
+               type="xml">
+            <kanban class="o_kanban_view">
+                <field name="teacher_id"/>
+                <field name="teacher_name"/>
+                <field name="email"/>
+                <field name="mobile_no"/>
+                <field name="rel_department_id"/>
+                <field name="teacher_pic"
+                       modifiers="{&quot;readonly&quot;: true}"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card "
+                             style="display: flex; align-items: center; gap: 10px;">
+                            <!-- Profile Picture -->
+                            <div class="oe_kanban_image"
+                                 style="background-color:yellow;">
+                                <field name="teacher_pic"
+                                       preview_image="teacher_pic"
+                                       widget="image"
+                                       options="{'zoom': true, 'zoom_delay': 1000}"
+                                       modifiers="{&quot;readonly&quot;: true}"
+                                       style=" width: 100px;height: 100%;"/>
+                            </div>
+                            <!-- Student Information -->
+                            <div class="oe_kanban_details">
+                                <strong t-esc="record.teacher_name.value"
+                                        style="background-color:#F2F9FF; padding:2px 4px; border-radius:5px;color:black;"/>
+                                <br/>
+                                <span style="color: #3E2A6B; font-weight:600;">Email:</span>
+                                <t t-esc="record.email.value"/>
+                                <br/>
+                                <span style="color: #3E2A6B; font-weight:600;">Mobile No:</span>
+                                <t t-esc="record.mobile_no.value"/>
+                                <br/>
+                                <span style="color: #3E2A6B; font-weight:600;">Department:</span>
+                                <t t-esc="record.rel_department_id.value"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_teacher_form"
+            model="ir.ui.view">
+        <field name="name">teacher.form</field>
+        <field name="model">school.teacher</field>
+        <field name="arch"
+               type="xml">
+            <form string="Teacher">
+                <sheet>
+                    <field name="teacher_id"
+                           invisible="1"/>
+                    <div style="text-align:center;">
+                        <h2 style="color:#3E2A6B; font-weight:600; background-color:#F5F5F5; padding:3px; border-radius:5px;margin-bottom:10px;">
+                            Teacher Profile Registration
+                        </h2>
+                    </div>
+                    <group string="Personal Details">
+                        <field name="teacher_name"
+                               required="1"/>
+                        <field name="email"
+                               required="1"
+                               widget='email'/>
+                        <field name="mobile_no"
+                               required="1"
+                               widget='phone'/>
+                        <field name="gender"/>
+                        <field name="teacher_pic"
+                               widget="image"
+                               class="oe_avatar"
+                               options="{'size': [128, 128]}"/>
+                        <field name="teacher_sign"
+                               widget="image"
+                               class="oe_avatar"
+                               options="{'size': [128, 100]}"/>
+                    </group>
+                    <group string="Academic Details">
+                        <field name="rel_department_id"
+                               options="{'no_create': True}"/>
+                        <field name="rel_subject_id"
+                               widget="many2many_tags"
+                               options="{'no_create': True}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_teacher_tree"
+            model="ir.ui.view">
+        <field name="name">teacher.tree</field>
+        <field name="model">school.teacher</field>
+        <field name="arch"
+               type="xml">
+            <tree string="Teacher">
+                <field name="teacher_id"/>
+                <field name="teacher_pic"
+                       widget="image"
+                       options="{'size': [40,40]}"/>
+                <field name="teacher_name"/>
+                <field name="email"/>
+                <field name="mobile_no"/>
+                <field name="rel_department_id"/>
+                <field name="rel_subject_id"
+                       widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_school_teacher"
+            model="ir.actions.act_window">
+        <field name="name">Teacher</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">school.teacher</field>
+        <field name="view_mode">tree,kanban,form</field>
+        <field name="help"
+               type="html">
+            <p>
+                Create and manage teacher data here.
+                <br/>
+                <h1>By Durgesh Bagul | Gaurav Bonde</h1>
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem id="menu_teacher"
+              name="Teacher"
+              parent="menu_school_master"
+              action="action_school_teacher"
+              sequence="2"/>
+</odoo>
