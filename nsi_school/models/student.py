@@ -23,6 +23,7 @@ class SchoolStudent(models.Model):
     pan_card = fields.Binary(string="Pan Card:(Optional) ", attachment=True, )
     father_name = fields.Text(string="Father Name: ")
     mother_name = fields.Text(string="Mother Name: ")
+    tax_id = fields.Text(string="Mother Name: ")
 
     # Relationships
     rel_teacher_id = fields.Many2one('school.teacher', string="Assigned Teacher")

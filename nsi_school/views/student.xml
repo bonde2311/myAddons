@@ -81,6 +81,7 @@
                                 <field name="student_name"/>
                                 <field name="father_name"/>
                                 <field name="mother_name"/>
+                                <field name="tax_id"/>
                                 <field name="email"
                                        widget="email"/>
                                 <field name="mobile_no"
